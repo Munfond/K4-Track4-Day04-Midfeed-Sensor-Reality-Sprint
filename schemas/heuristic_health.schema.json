@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Heuristic health record v1.0.0 (separate from ML predictions)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_type": {"const": "heuristic_health"},
+    "sample_id": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+    "policy_id": {"type": "string", "minLength": 1},
+    "mode": {"enum": ["day", "night", "fixed_fallback"]},
+    "health_fixed": {"type": "number", "minimum": 0, "maximum": 100},
+    "health_adaptive": {"type": "number", "minimum": 0, "maximum": 100},
+    "health_score": {"type": "number", "minimum": 0, "maximum": 100},
+    "camera_weight": {"type": "number", "minimum": 0, "maximum": 1},
+    "action": {"enum": ["normal", "down_weight", "strong_down_weight"]},
+    "fallback_reason": {"type": "string", "minLength": 1}
+  },
+  "required": ["schema_version", "record_type", "sample_id", "policy_id", "mode", "health_fixed", "health_adaptive", "health_score", "camera_weight", "action"],
+  "if": {"properties": {"mode": {"const": "fixed_fallback"}}},
+  "then": {"required": ["fallback_reason"]},
+  "else": {"not": {"required": ["fallback_reason"]}}
+}

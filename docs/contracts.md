@@ -122,3 +122,10 @@ BDD100K không có paired same-scene clean/adverse như ACDC; original/synthetic
 Chạy validator trước mỗi bàn giao. JSON Schema kiểm tra từng record; validator kiểm tra các điều kiện liên-record như sequence leakage, feature coverage, parent và công thức prediction. Validator không kiểm tra nội dung ảnh, truthfulness của annotation hoặc việc scaler thực sự fit đúng split; cần review code/log riêng.
 
 Đổi field, feature formula/order, preprocessing, class mapping hoặc policy phải nâng version và migration, do người 5 quản lý. Không sửa contract cục bộ trên branch cá nhân rồi merge cùng module.
+# Bổ sung nghiệm thu heuristic (06/10/2026)
+
+Schema ML v1.0.0 bên dưới được giữ nguyên. Record `heuristic_health` v1.0.0 dùng schema **riêng** `schemas/heuristic_health.schema.json`; không chuyển thành probability hoặc ML prediction. Đây là schema cho record tạm thời đã thống nhất trong sprint, không đổi feature/class/manifest contract.
+
+`scripts/validate_health.py` kiểm tra coverage chính xác, ID duy nhất, finite/range, policy và config/reference hashes qua API owner 4, reference có trong train originals, mode từ metadata, fallback_reason, health_score=health_adaptive, weight và action theo frozen thresholds. Nó tái tính score từ feature; frozen val features/metadata/health phải khớp evidence. Test scoring với draft bị chặn. CLI full evaluation yêu cầu đủ manifest/features và parent/reference/val records để kiểm chứng evidence, không chỉ một file test rời.
+
+Owner runner gọi `corruptions.generate_batch/verify_batch`, `features.extract_manifest` qua health adapter và `scripts/run_health.py prepare/finalize`. Review val/reference được lưu thành note trước freeze; không tự chọn hệ số hoặc suy ra nhãn quality.

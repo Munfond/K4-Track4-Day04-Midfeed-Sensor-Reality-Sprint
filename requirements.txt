@@ -1,7 +1,5 @@
-# Planned ML environment; only contract tooling is implemented in this starter.
+# Runtime for data -> degradation -> features -> heuristic health -> evaluation.
 numpy>=1.26,<3
 Pillow>=10,<13
-scikit-learn>=1.4,<2
-joblib>=1.3,<2
 matplotlib>=3.8,<4
 jsonschema>=4.18,<5
