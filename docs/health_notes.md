@@ -1,9 +1,103 @@
 # Health/calibration — phần người 4
 
+Báo cáo cá nhân: [Bùi Quang Vinh — 2A202603012](bao_cao_ca_nhan_buiquangvinh_2A202603012.md).
+
 Implementation: `src/baseline.py`; config template: `configs/health.json`.
 Module dùng Python standard library, không cần GPU hoặc package bổ sung.
-Config hiện là giá trị khởi đầu, **chưa tune trên BDD100K validation**.
+Runner `scripts/run_health.py` dùng NumPy, Pillow và jsonschema để trích feature,
+validate input và tạo contact sheet. Không cần GPU.
+Config template giữ giá trị khởi đầu; config đã chọn trên BDD100K validation và
+frozen cho lần chạy chính thức nằm trong `references.json["config"]` bên dưới.
 Health là heuristic mô tả ảnh, chưa phải confidence ADAS đã calibrated.
+
+## Kết quả BDD100K hoàn tất ngày 06/10/2026
+
+Run health: `p4_bdd100k_20261006_04`, nhánh `health`. Batch degradation đầu vào:
+`p4_bdd100k_20261006_01`. Feature batch: `p4_bdd100k_20261006_02`.
+Các mục nuScenes bên dưới là lịch sử pilot, không phải input của lượt chạy này.
+
+- 300 ảnh BDD100K original, 6.000 synthetic, 6.300 manifest/feature/health records.
+- Original split: 180 train, 60 val, 60 test; sau degradation: 3.780/1.260/1.260.
+- Reference: 20 original train, 10 day và 10 night, kiểm tra hash/coverage và đã
+  xem cả 20 ảnh trên contact sheet. Night có natural darkness/glare; day có
+  scene/windshield variation. Không khẳng định reference sạch hoặc tạo quality labels.
+- Upstream `reference_ids.json["visual_review"]` vẫn là `pending`, giữ nguyên file
+  người 1. Review cho lượt health này được ghi riêng trong provenance frozen.
+- Validation: xem 1.260 score, 8 original có điểm thấp nhất và contact sheet
+  degradation day/night. So sánh scale multiplier 2/3/4 chỉ trên val, chọn 3;
+  giữ weights 0.3/0.3/0.3/0.1 và ngưỡng minh họa 75/45. Chưa có quality labels
+  để tối ưu F1 hoặc false alarm. Không dùng test để chọn hệ số/ngưỡng.
+- Sau freeze mới chấm 1.260 test records. Final gồm 2.296 normal, 3.006 down_weight,
+  998 strong_down_weight. Riêng test: 429/609/222; đây là policy actions, không phải
+  quality ground truth. Original test: 47 normal, 9 down_weight, 4 strong_down_weight.
+- Fixed/adaptive mean của original test: day 95.60/84.54 (34 ảnh), night
+  75.54/84.01 (26 ảnh). Adaptive không mặc định tốt hơn fixed.
+
+Ngoại lệ đã giữ nguyên: noise nhẹ làm Laplacian/entropy tăng; brightness_up có
+thể cải thiện ảnh night vốn tối; blur penalty đạt trần rồi score có thể tăng nhẹ.
+Val có 391 và final có 2.141 score-increase findings so với original parent,
+đếm fixed/adaptive riêng. Không ép score giảm đơn điệu hoặc gọi mọi severity là xấu.
+
+Output bàn giao:
+
+- `data/features/p4_bdd100k_20261006_04/references.json`: reference và config frozen.
+- `data/features/p4_bdd100k_20261006_04/health_scores.jsonl`: đủ 6.300 health records.
+- `data/features/p4_bdd100k_20261006_04/handoff.json`: paths, hashes, review notes.
+- `data/features/p4_bdd100k_20261006_04/verification.json`: acceptance checks.
+- `data/features/p4_bdd100k_20261006_04/validation/`: val scores summary, reference
+  contact sheets, lowest originals, explanations và `config_candidates.json`.
+- `data/features/p4_bdd100k_20261006_04/final_review/`: bảng JSON/CSV/Markdown theo
+  split/mode/corruption/severity và tất cả ngoại lệ score tăng.
+
+Policy: `heuristic-v1-5a7bf047d3a775aa`.
+Reference SHA256: `0ba1cbe2c782bc7a23548c6d56d3cfc42808fcee63f1901e18bf3ff065a8fd65`.
+Config SHA256: `f647557d17b1c3bdadb0614e734a1dae69ebc986903d266ce72af012d04b926c`.
+
+Đã sửa adapter để nhận reference handoff có metadata và nhóm fixed; kiểm tra fixed
+khớp day/night union, hash/source originals và reference sequence. Runner chặn
+test trước freeze, input/code/val score đổi sau review và ghi đè output cũ.
+24 tests trong repo pass, bao gồm contract, health và runner prepare/finalize.
+Full corruption verification pass; smoke 120 PNG replay pixel pass. Final ID coverage,
+finite/range, mode, weight/action và hash pass; 1.260 val scores khớp hoàn toàn
+trước/sau freeze. Split leakage chỉ được kiểm tra theo sequence_id người 1 khai báo.
+
+## Chạy lại trên Windows
+
+Chạy từ repository root. Môi trường `.venv` hiện có Python 3.12.14, NumPy 2.3.5,
+Pillow 12.3.0, jsonschema 4.26.0. Máy mới cần tạo venv và cài các dependency tối thiểu:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install 'numpy>=1.26,<3' 'Pillow>=10,<13' 'jsonschema>=4.18,<5'
+```
+
+Dùng run_id mới cho mỗi snapshot. Ví dụ bên dưới chưa được thực chạy; đổi tên nếu
+đã tồn tại. Có thể tái dùng augmented manifest đã kiểm tra để bỏ bước corruption.
+
+```powershell
+# Generate a new degradation snapshot only when a fresh batch is needed.
+.\.venv\Scripts\python.exe src/corruptions.py --handoff --run-id p4_bdd_next
+
+# Extract features, calibrate train references and score validation only.
+.\.venv\Scripts\python.exe scripts/run_health.py prepare `
+  --manifest data/manifests/augmented_p4_bdd_next.jsonl `
+  --run-id p4_health_next
+
+# Inspect reference sheets, validation tables and failure images before finalizing.
+.\.venv\Scripts\python.exe scripts/run_health.py finalize `
+  --run-dir data/features/p4_health_next `
+  --reference-review-note '<describe the actual reference review>' `
+  --validation-note '<describe the actual validation review and selected settings>'
+
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+`prepare --features <features.jsonl>` tái dùng feature snapshot hiện có; `--config`
+nhận draft config khác nếu muốn thử hệ số mới. Review từng draft trên val rồi chọn
+run để finalize. Không chỉnh code/input/draft giữa prepare và finalize; runner kiểm
+tra hash. Template config vẫn draft, không thay bằng frozen config của dataset khác.
+Người 5 đọc frozen config từ references artifact và dùng heuristic records riêng,
+không đưa chúng vào validator ML prediction. Dữ liệu/output giữ local, không commit.
 
 ## Input và API
 
@@ -198,7 +292,7 @@ Không ép score giảm đơn điệu hoặc sửa điểm để làm curve đ�
 - Chưa có labels, detector run hoặc fusion run: không báo F1, AP, fusion benefit
   hoặc độ tin cậy ADAS. Fixture chỉ kiểm tra phần mềm, không chứng minh mô hình.
 
-## Trạng thái bàn giao local
+## Trạng thái bàn giao local trước lượt BDD100K (lịch sử)
 
 Code, config và công thức đã được triển khai. Calibration/tuning trên BDD100K
 thật còn chờ manifest/features/reference IDs. Config template chưa frozen;
