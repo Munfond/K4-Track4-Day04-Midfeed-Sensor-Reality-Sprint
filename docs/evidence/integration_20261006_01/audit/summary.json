@@ -1,0 +1,60 @@
+{
+  "status": "complete",
+  "run_id": "integration_20261006_01",
+  "evidence_id": "evidence_20261006_01",
+  "command_argv": [
+    "scripts/audit_real_run.py",
+    "--run-id",
+    "integration_20261006_01",
+    "--evidence-id",
+    "evidence_20261006_01"
+  ],
+  "git_commit": "0917990c809ed503ec29240ff6b61d29bbb8e4cc",
+  "audit_script_sha256": "e87584beb2f22d4b8e3e0aaa2cfef08adf247659d836813e1ddd43a583d0b8bb",
+  "protected_sha256": {
+    "data\\manifests\\originals.jsonl": "ad252ca630b8b35a0e4394ef55d87865aad952da2c4d0f8534f429eab715b57a",
+    "data\\manifests\\reference_ids.json": "27074f74ea7a9f5299b5d89288625c562adcc4f8d6b0e2aa861d82ad18c704a4",
+    "data\\manifests\\augmented_integration_20261006_01.jsonl": "9eb8a4f62b184f4579ca77473e22567c7eb306c8994ea5e5a4a57bad8a6d8f06",
+    "data\\features\\integration_20261006_01\\features.jsonl": "6b1bcea46d43f3a8e036d08b2fa443230bdbb8c9e2eeb217fadc5d76250c53e0",
+    "data\\features\\integration_20261006_01\\references.json": "5fb3cc255f53fe7bd8f62443bf1bc5dbf989b5dc1c81607628df11233d8ada31",
+    "data\\features\\integration_20261006_01\\health_scores.jsonl": "8f3d256afae0f6153c4fe656a037487d340f3e99de783f18bc2fe0f8c415ef2e",
+    "data\\features\\integration_20261006_01\\health_val.jsonl": "4d2e69ac6b44426d77ec0ac0bfb3984a73f92040b451c23a318bc7a1d86d0cb8",
+    "data\\features\\integration_20261006_01\\references_draft.json": "1245afeb823e714ebe91dd00e4300325e98c908e9d3f16975e9f6029e461dc87",
+    "data\\features\\integration_20261006_01\\handoff.json": "b819814709395688c8ebc9d65878a9af6b3ecd8f3d3d4ff4d108034ea73afa41",
+    "data\\generated\\integration_20261006_01\\run_summary.json": "0b3584483e991aedafafe02e9adcc65593a383419ba1618893df44824f2d93c4",
+    "configs\\corruptions.json": "7948ef84f8af42bbd262e93dcf6de9cedf5256e9774039835505c17a963f926a",
+    "configs\\health.json": "ce20a1948ac9a062b2bc3212c54f6bf21a4bb625cb6d78b3623aa47e22cc563b",
+    "src\\corruptions.py": "417d31c30a5eb33add0a3290c9a988348fe44a989519eda2d808a8d3541463ae",
+    "src\\features.py": "b7e3fd269c1d9d164abda2d047bf7ab962bb85b32de7462da5a7f6c1bb9d82e4",
+    "src\\baseline.py": "0a707af03e45dfde8d4fc7492f1aa10179e8f8faf0b7bd2fd3d3fe11b4850458",
+    "data\\raw\\bdd100k_hf\\samples.json": "1e8853904e2926c434557bb90a36b1638ac03ebb77adfc21f04d821a6a998a09"
+  },
+  "protected_unchanged": true,
+  "phases": [
+    {
+      "person": 1,
+      "phase": "data_handoff_audit",
+      "status": "delivery_verified_preparation_not_replayed"
+    },
+    {
+      "person": 2,
+      "phase": "degradation_verification_and_pixel_replay",
+      "status": "passed"
+    },
+    {
+      "person": 3,
+      "phase": "feature_coverage_and_image_reextraction",
+      "status": "passed"
+    },
+    {
+      "person": 4,
+      "phase": "reference_recalibration_and_full_health_recomputation",
+      "status": "passed"
+    },
+    {
+      "person": 5,
+      "phase": "evaluation_report_reproduction",
+      "status": "passed"
+    }
+  ]
+}

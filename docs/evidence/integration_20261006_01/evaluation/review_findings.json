@@ -1,0 +1,12 @@
+{
+  "reviewer": "person_5_integrator",
+  "review_scope": "Exploratory visual review after frozen scoring; no retuning",
+  "reference_review": "20 train reference thumbnails and two full-resolution night images reviewed; night set includes glare/darkness/possible blur; owner1 visual_review remains pending",
+  "metadata_flags": [
+    {"sample_id": "b329fe7d-f06455d3", "split": "test", "supplied_timeofday": "daytime", "observation": "Visually resembles night; verify original metadata with owner1"},
+    {"sample_id": "bf8ff5f5-916b50d0", "split": "test", "supplied_timeofday": "daytime", "observation": "Visually resembles night; verify original metadata with owner1"}
+  ],
+  "policy_findings": ["Night brightness increases and mild noise can raise health", "Blur scores can plateau or rise between severity levels", "Rainy originals may receive high health despite glare or water"],
+  "disposition": "Preserve delivered data, owner logic, frozen configuration and all scores. Follow-up fixes belong to owners and a new snapshot/run_id.",
+  "limitations": "No human quality labels, classifier training, detector AP, fusion or ADAS reliability validation"
+}

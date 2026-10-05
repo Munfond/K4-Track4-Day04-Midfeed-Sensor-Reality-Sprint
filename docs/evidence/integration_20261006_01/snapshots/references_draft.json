@@ -1,0 +1,497 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "heuristic_references",
+  "feature_version": "1.0.0",
+  "reference_rows": [
+    {
+      "sample_id": "b27d5dcb-856c0b43",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "b27d5dcb",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 6.102604475641416,
+        "saturation_ratio": 0.012456597222222223,
+        "dark_ratio": 0.005073784722222223,
+        "entropy": 7.679000497252009,
+        "noise_residual": 5.142868579131905,
+        "median_luminance": 102.0,
+        "contrast": 63.74882298749809
+      }
+    },
+    {
+      "sample_id": "b2ec68ce-d345784e",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "b2ec68ce",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.060109308265803,
+        "saturation_ratio": 0.0018272569444444445,
+        "dark_ratio": 0.019856770833333332,
+        "entropy": 6.057718671080043,
+        "noise_residual": 3.329196651930045,
+        "median_luminance": 20.0,
+        "contrast": 31.550208998212213
+      }
+    },
+    {
+      "sample_id": "b4946e87-fe31271f",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "b4946e87",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.071076978453772,
+        "saturation_ratio": 0.0012239583333333334,
+        "dark_ratio": 0.0698046875,
+        "entropy": 5.890642888477935,
+        "noise_residual": 3.522602489440316,
+        "median_luminance": 17.0,
+        "contrast": 28.07687550612225
+      }
+    },
+    {
+      "sample_id": "b68a000f-9a8091f9",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "b68a000f",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 6.195735167444298,
+        "saturation_ratio": 1.3020833333333334e-05,
+        "dark_ratio": 0.0011458333333333333,
+        "entropy": 7.766208137054918,
+        "noise_residual": 5.043701810316396,
+        "median_luminance": 101.0,
+        "contrast": 64.40351696676295
+      }
+    },
+    {
+      "sample_id": "b79307e6-6cfc1c5b",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "b79307e6",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 6.058021110387096,
+        "saturation_ratio": 0.0027213541666666666,
+        "dark_ratio": 3.472222222222222e-05,
+        "entropy": 7.601015351260894,
+        "noise_residual": 4.809687580088291,
+        "median_luminance": 106.0,
+        "contrast": 59.994951970102484
+      }
+    },
+    {
+      "sample_id": "b88b6624-3b54ae18",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "b88b6624",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 5.885425354675086,
+        "saturation_ratio": 0.013059895833333333,
+        "dark_ratio": 0.002495659722222222,
+        "entropy": 7.5140700911861735,
+        "noise_residual": 4.528548524208514,
+        "median_luminance": 98.0,
+        "contrast": 55.645361535458136
+      }
+    },
+    {
+      "sample_id": "b8a52657-426c14ae",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "b8a52657",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.057023428219394,
+        "saturation_ratio": 0.0008897569444444444,
+        "dark_ratio": 0.32675347222222223,
+        "entropy": 5.516701552472357,
+        "noise_residual": 3.312610061064638,
+        "median_luminance": 10.0,
+        "contrast": 26.990881912363765
+      }
+    },
+    {
+      "sample_id": "bc24f222-f198b643",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "bc24f222",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 6.177254031179329,
+        "saturation_ratio": 4.774305555555556e-05,
+        "dark_ratio": 0.0,
+        "entropy": 7.6025560645612416,
+        "noise_residual": 5.623678857197385,
+        "median_luminance": 107.0,
+        "contrast": 61.42596725227594
+      }
+    },
+    {
+      "sample_id": "bd138b54-7e85623f",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "bd138b54",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 6.109245162904295,
+        "saturation_ratio": 0.00046875,
+        "dark_ratio": 0.0058940972222222224,
+        "entropy": 7.660735157195834,
+        "noise_residual": 5.131045299746978,
+        "median_luminance": 107.0,
+        "contrast": 75.07177185238359
+      }
+    },
+    {
+      "sample_id": "bdcd6f24-e3a675af",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "bdcd6f24",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.115067155593653,
+        "saturation_ratio": 0.009006076388888888,
+        "dark_ratio": 0.023094618055555554,
+        "entropy": 5.8407725359107765,
+        "noise_residual": 3.4822572350975007,
+        "median_luminance": 14.0,
+        "contrast": 44.635403953699196
+      }
+    },
+    {
+      "sample_id": "bfe0801e-20388316",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "bfe0801e",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 5.945498607246355,
+        "saturation_ratio": 0.0004166666666666667,
+        "dark_ratio": 0.0,
+        "entropy": 7.564682633093519,
+        "noise_residual": 4.862312996261256,
+        "median_luminance": 102.0,
+        "contrast": 62.772219331067035
+      }
+    },
+    {
+      "sample_id": "c09dfe6c-f23991eb",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c09dfe6c",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 5.901291388283845,
+        "saturation_ratio": 4.340277777777778e-06,
+        "dark_ratio": 0.0,
+        "entropy": 7.328168820325438,
+        "noise_residual": 4.940238779794848,
+        "median_luminance": 98.0,
+        "contrast": 42.278639892367956
+      }
+    },
+    {
+      "sample_id": "c29d692d-ed6435ba",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c29d692d",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.500608613177716,
+        "saturation_ratio": 0.0024652777777777776,
+        "dark_ratio": 0.1328732638888889,
+        "entropy": 6.376915750361886,
+        "noise_residual": 4.094648438307413,
+        "median_luminance": 21.0,
+        "contrast": 35.95302524278612
+      }
+    },
+    {
+      "sample_id": "c2f5e5c4-35640746",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c2f5e5c4",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 6.352060878216957,
+        "saturation_ratio": 0.0002690972222222222,
+        "dark_ratio": 0.0025434027777777777,
+        "entropy": 7.654734189201319,
+        "noise_residual": 5.966116347410042,
+        "median_luminance": 101.0,
+        "contrast": 56.25247269717825
+      }
+    },
+    {
+      "sample_id": "c33251a6-812a0ea8",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c33251a6",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 4.592229044529293,
+        "saturation_ratio": 0.0008333333333333334,
+        "dark_ratio": 0.0013324652777777777,
+        "entropy": 5.710451989725493,
+        "noise_residual": 2.6193200784957744,
+        "median_luminance": 21.0,
+        "contrast": 25.115515006974384
+      }
+    },
+    {
+      "sample_id": "c37b9f20-e161a563",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c37b9f20",
+      "timeofday": "daytime",
+      "features": {
+        "log_laplacian_variance": 6.07736237193669,
+        "saturation_ratio": 0.028953993055555554,
+        "dark_ratio": 2.170138888888889e-05,
+        "entropy": 7.322852744604626,
+        "noise_residual": 5.468434911557826,
+        "median_luminance": 104.0,
+        "contrast": 48.19225310818519
+      }
+    },
+    {
+      "sample_id": "c457bb30-990d6395",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c457bb30",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.195801722047494,
+        "saturation_ratio": 0.0033029513888888887,
+        "dark_ratio": 0.22495225694444446,
+        "entropy": 5.893766540094027,
+        "noise_residual": 3.4122691466481165,
+        "median_luminance": 15.0,
+        "contrast": 32.74497015224382
+      }
+    },
+    {
+      "sample_id": "c6549c4a-57169b63",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c6549c4a",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.40476632311805,
+        "saturation_ratio": 0.010842013888888889,
+        "dark_ratio": 0.00030381944444444445,
+        "entropy": 6.195022548656882,
+        "noise_residual": 3.9128716099702414,
+        "median_luminance": 22.0,
+        "contrast": 43.96677970480278
+      }
+    },
+    {
+      "sample_id": "c7416644-6723bcd7",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c7416644",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.040004044005336,
+        "saturation_ratio": 0.008081597222222223,
+        "dark_ratio": 0.10444444444444445,
+        "entropy": 6.153159282009524,
+        "noise_residual": 3.244018266577562,
+        "median_luminance": 17.0,
+        "contrast": 40.83853355752209
+      }
+    },
+    {
+      "sample_id": "c8b0bab6-04d79fe4",
+      "split": "train",
+      "corruption": "original",
+      "sequence_id": "c8b0bab6",
+      "timeofday": "night",
+      "features": {
+        "log_laplacian_variance": 5.0650556590474185,
+        "saturation_ratio": 0.0014409722222222222,
+        "dark_ratio": 0.27305989583333334,
+        "entropy": 5.90606959926664,
+        "noise_residual": 3.5647282261609914,
+        "median_luminance": 12.0,
+        "contrast": 31.75064243048105
+      }
+    }
+  ],
+  "groups": {
+    "fixed": {
+      "sample_ids": [
+        "b27d5dcb-856c0b43",
+        "b2ec68ce-d345784e",
+        "b4946e87-fe31271f",
+        "b68a000f-9a8091f9",
+        "b79307e6-6cfc1c5b",
+        "b88b6624-3b54ae18",
+        "b8a52657-426c14ae",
+        "bc24f222-f198b643",
+        "bd138b54-7e85623f",
+        "bdcd6f24-e3a675af",
+        "bfe0801e-20388316",
+        "c09dfe6c-f23991eb",
+        "c29d692d-ed6435ba",
+        "c2f5e5c4-35640746",
+        "c33251a6-812a0ea8",
+        "c37b9f20-e161a563",
+        "c457bb30-990d6395",
+        "c6549c4a-57169b63",
+        "c7416644-6723bcd7",
+        "c8b0bab6-04d79fe4"
+      ],
+      "count": 20,
+      "median": {
+        "log_laplacian_variance": 5.693016983926402,
+        "saturation_ratio": 0.0016341145833333333,
+        "dark_ratio": 0.0038085937500000003,
+        "entropy": 6.849884247483256,
+        "noise_residual": 4.311598481257963,
+        "median_luminance": 60.0,
+        "contrast": 44.30109182925099
+      },
+      "mad": {
+        "log_laplacian_variance": 0.4907261545659174,
+        "saturation_ratio": 0.0014756944444444444,
+        "dark_ratio": 0.0038085937500000003,
+        "entropy": 0.7985077590606382,
+        "noise_residual": 0.8243940323247385,
+        "median_luminance": 42.5,
+        "contrast": 12.65066611490436
+      }
+    },
+    "day": {
+      "sample_ids": [
+        "b27d5dcb-856c0b43",
+        "b68a000f-9a8091f9",
+        "b79307e6-6cfc1c5b",
+        "b88b6624-3b54ae18",
+        "bc24f222-f198b643",
+        "bd138b54-7e85623f",
+        "bfe0801e-20388316",
+        "c09dfe6c-f23991eb",
+        "c2f5e5c4-35640746",
+        "c37b9f20-e161a563"
+      ],
+      "count": 10,
+      "median": {
+        "log_laplacian_variance": 6.089983423789054,
+        "saturation_ratio": 0.00044270833333333337,
+        "dark_ratio": 0.0005902777777777778,
+        "entropy": 7.601785707911068,
+        "noise_residual": 5.087373555031687,
+        "median_luminance": 102.0,
+        "contrast": 60.71045961118921
+      },
+      "mad": {
+        "log_laplacian_variance": 0.0965111755227599,
+        "saturation_ratio": 0.00043402777777777786,
+        "dark_ratio": 0.0005902777777777778,
+        "entropy": 0.06808211931285335,
+        "noise_residual": 0.2513732668569135,
+        "median_luminance": 3.0,
+        "contrast": 4.075522134792351
+      }
+    },
+    "night": {
+      "sample_ids": [
+        "b2ec68ce-d345784e",
+        "b4946e87-fe31271f",
+        "b8a52657-426c14ae",
+        "bdcd6f24-e3a675af",
+        "c29d692d-ed6435ba",
+        "c33251a6-812a0ea8",
+        "c457bb30-990d6395",
+        "c6549c4a-57169b63",
+        "c7416644-6723bcd7",
+        "c8b0bab6-04d79fe4"
+      ],
+      "count": 10,
+      "median": {
+        "log_laplacian_variance": 5.068066318750596,
+        "saturation_ratio": 0.002146267361111111,
+        "dark_ratio": 0.08712456597222223,
+        "entropy": 5.899918069680334,
+        "noise_residual": 3.4472631908728086,
+        "median_luminance": 17.0,
+        "contrast": 32.24780629136244
+      },
+      "mad": {
+        "log_laplacian_variance": 0.03753155579415868,
+        "saturation_ratio": 0.0012065972222222222,
+        "dark_ratio": 0.07652994791666667,
+        "entropy": 0.17363334067727498,
+        "noise_residual": 0.12635983437546705,
+        "median_luminance": 3.5,
+        "contrast": 4.71392758211943
+      }
+    }
+  },
+  "reference_sha256": "0ba1cbe2c782bc7a23548c6d56d3cfc42808fcee63f1901e18bf3ff065a8fd65",
+  "config": {
+    "schema_version": "1.0.0",
+    "feature_version": "1.0.0",
+    "formula_version": "weighted_reference_penalties_v1",
+    "policy_id": "heuristic-v1-5a7bf047d3a775aa",
+    "weights": {
+      "sharpness": 0.3,
+      "exposure": 0.3,
+      "noise": 0.3,
+      "entropy": 0.1
+    },
+    "scale_multiplier": 3.0,
+    "scale_floors": {
+      "log_laplacian_variance": 1.5,
+      "saturation_ratio": 0.2,
+      "dark_ratio": 0.25,
+      "entropy": 1.5,
+      "noise_residual": 10.0,
+      "median_luminance": 60.0
+    },
+    "tolerances": {
+      "log_laplacian_variance": 0.1,
+      "saturation_ratio": 0.1,
+      "dark_ratio": 0.1,
+      "entropy": 0.1,
+      "noise_residual": 0.25,
+      "median_luminance": 0.25
+    },
+    "thresholds": {
+      "normal_min": 75.0,
+      "down_weight_min": 45.0
+    },
+    "frozen": false,
+    "reference_sha256": "0ba1cbe2c782bc7a23548c6d56d3cfc42808fcee63f1901e18bf3ff065a8fd65",
+    "validation": null
+  },
+  "config_sha256": "c010bb11ef9927a95a69201248402dc6e53fd7c9484873d8b27a1f264e7161ae",
+  "policy_sha256": "5ae4d9d29481113c82548a16e7d7d195bb3d08c75d1996f522f581333d089599",
+  "provenance": {
+    "source_manifest_path": "data/manifests/originals.jsonl",
+    "source_manifest_sha256": "ad252ca630b8b35a0e4394ef55d87865aad952da2c4d0f8534f429eab715b57a",
+    "source_visual_review": "pending",
+    "manifest_sha256": "9eb8a4f62b184f4579ca77473e22567c7eb306c8994ea5e5a4a57bad8a6d8f06",
+    "features_sha256": "6b1bcea46d43f3a8e036d08b2fa443230bdbb8c9e2eeb217fadc5d76250c53e0",
+    "reference_ids_sha256": "27074f74ea7a9f5299b5d89288625c562adcc4f8d6b0e2aa861d82ad18c704a4",
+    "git_commit": "0917990c809ed503ec29240ff6b61d29bbb8e4cc",
+    "runtime": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.3",
+      "Pillow": "12.3.0",
+      "jsonschema": "4.26.0"
+    },
+    "module_sha256": {
+      "src/baseline.py": "0a707af03e45dfde8d4fc7492f1aa10179e8f8faf0b7bd2fd3d3fe11b4850458",
+      "src/features.py": "b7e3fd269c1d9d164abda2d047bf7ab962bb85b32de7462da5a7f6c1bb9d82e4",
+      "scripts/run_health.py": "0f8bf204a23526e7d21aa5e26371c7b76b152104d6852acb25575f7de37af6df"
+    }
+  }
+}

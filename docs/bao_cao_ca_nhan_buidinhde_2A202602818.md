@@ -34,7 +34,7 @@ Brightness/noise tính float64, clip [0,255], `np.rint` rồi chuyển uint8. Se
 
 CLI có preflight, smoke, batch, verify/replay và handoff. Synthetic giữ metadata của parent; downstream đọc manifest, không glob contact sheets như sample. Giả định là original/metadata của người 1 đã bàn giao đúng; ảnh gốc không mặc nhiên pristine và severity không phải quality label.
 
-**Truy vết code:** [commit triển khai `0edb21b`](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/0edb21bc5fce28f017c7ec1028198ca01dc26af3), đã merge qua PR #1. HEAD full integration là `0917990`; phần người 5 chưa commit, nên dùng [module hashes/argv/runtime](../reports/runs/integration_20261006_01/evaluation/provenance.json). Contract v1.0.0; runtime full run: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0.
+**Truy vết code:** [commit triển khai `0edb21b`](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/0edb21bc5fce28f017c7ec1028198ca01dc26af3), đã merge qua PR #1. HEAD full integration là `0917990`; tại thời điểm chạy phần người 5 chưa commit, nên dùng [module hashes/argv/runtime](evidence/integration_20261006_01/evaluation/provenance.json). Contract v1.0.0; runtime full run: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0.
 
 ## 3. Benchmark
 
@@ -51,11 +51,11 @@ CLI có preflight, smoke, batch, verify/replay và handoff. Synthetic giữ meta
 | Gaussian noise | 1–5, σ=5→50 RGB intensity | 300 | 1.500 | 1.500 |
 | Tổng augmented | 0–5 | **300 originals duy nhất** | **6.000** | **6.300** |
 
-Nguồn số đo: [run_summary.json](../data/generated/integration_20261006_01/run_summary.json), [augmented manifest](../data/manifests/augmented_integration_20261006_01.jsonl), [config snapshot](../data/generated/integration_20261006_01/config_snapshot.json) và [evidence phase 2](../reports/runs/integration_20261006_01/evidence_20261006_01/phase_2.json). Các dòng corruption dùng cùng parents, không cộng thành 1.200 ảnh nguồn độc lập.
+Nguồn số đo: [run_summary.json](evidence/integration_20261006_01/generation/run_summary.json), [augmented manifest](evidence/integration_20261006_01/snapshots/augmented_integration_20261006_01.jsonl), [config snapshot](evidence/integration_20261006_01/generation/config_snapshot.json) và [evidence phase 2](evidence/integration_20261006_01/audit/phase_2.json). Các dòng corruption dùng cùng parents, không cộng thành 1.200 ảnh nguồn độc lập.
 
-**Kết quả nghiệm thu:** đủ 6.000/6.000 synthetic và 6.300/6.300 records; verifier kiểm tra toàn bộ PNG RGB uint8 640×360, hashes, seed, parameters, coverage và parent metadata/split. Hash source không đổi. Pixel replay **120/120 variants khớp** trên 6 parents phân tầng train/val/test × day/night, có clear/rainy; đây là sample replay, không gọi là tái sinh toàn bộ 6.000 ảnh. [Pixel replay](../reports/runs/integration_20261006_01/evidence_20261006_01/pixel_replay.json).
+**Kết quả nghiệm thu:** đủ 6.000/6.000 synthetic và 6.300/6.300 records; verifier kiểm tra toàn bộ PNG RGB uint8 640×360, hashes, seed, parameters, coverage và parent metadata/split. Hash source không đổi. Pixel replay **120/120 variants khớp** trên 6 parents phân tầng train/val/test × day/night, có clear/rainy; đây là sample replay, không gọi là tái sinh toàn bộ 6.000 ảnh. [Pixel replay](evidence/integration_20261006_01/audit/pixel_replay.json).
 
-Integrator đã xem contact sheet sanity có các mức blur/brightness/noise; [ví dụ original và 20 biến thể](../data/generated/integration_20261006_01/sanity/b1d22449-15fb948f.png). Downstream tạo đủ 6.300 features/health; [handoff](../data/features/integration_20261006_01/handoff.json). Số health là sản phẩm chung và thuộc scorer người 4, không phải metric nội tại của module degradation.
+Integrator đã xem contact sheet sanity có các mức blur/brightness/noise; [ví dụ original và 20 biến thể](evidence/integration_20261006_01/images/degradation_sanity.png). Downstream tạo đủ 6.300 features/health; [handoff](evidence/integration_20261006_01/snapshots/handoff.json). Số health là sản phẩm chung và thuộc scorer người 4, không phải metric nội tại của module degradation.
 
 **Lịch sử kiểm thử, tách khỏi benchmark BDD100K:** báo cáo 05/10 ghi 280 self-checks và 12 unittest contract đạt trên fixture; 280 không phải số ảnh thật hay 280 unittest độc lập. Pilot image-only mini-nuScenes dùng 6 CAM_FRONT images từ 404 ứng viên, sinh 120 PNG nhưng không tạo manifest BDD100K. Những lượt đó không được chạy lại hoặc dùng thay evidence full run hiện tại. Bộ test tích hợp hiện tại của nhóm có 32 tests đạt, do người 5 nghiệm thu.
 
@@ -71,15 +71,15 @@ Integrator đã xem contact sheet sanity có các mức blur/brightness/noise; [
 .\.venv\Scripts\python.exe src/corruptions.py --verify --run-id integration_20261006_01
 ```
 
-Lệnh verify trên không replay pixel toàn batch; thêm `--replay` khi cần tái sinh và so pixel toàn bộ. Không cần tạo lại data khi verifier/audit đã khớp. [Audit summary](../reports/runs/integration_20261006_01/evidence_20261006_01/summary.json) chứa argv, hashes và scope kiểm chứng.
+Lệnh verify trên không replay pixel toàn batch; thêm `--replay` khi cần tái sinh và so pixel toàn bộ. Không cần tạo lại data khi verifier/audit đã khớp. [Audit summary](evidence/integration_20261006_01/audit/summary.json) chứa argv, hashes và scope kiểm chứng.
 
 ## 4. Failure case
 
-Một tình huống chung: original test `b329fe7d-f06455d3` [nhìn giống cảnh đêm](../data/raw/bdd100k/images/val/b329fe7d-f06455d3.jpg) nhưng metadata nguồn ghi daytime. Failure analysis dùng original, không có synthetic corruption áp vào frame này. Module của tôi giữ nguyên metadata; nó không sửa hoặc phát hiện nhãn ngày/đêm không phù hợp với nội dung ảnh.
+Một tình huống chung: original test `b329fe7d-f06455d3` [nhìn giống cảnh đêm](evidence/integration_20261006_01/images/b329fe7d-f06455d3.jpg) nhưng metadata nguồn ghi daytime. Failure analysis dùng original, không có synthetic corruption áp vào frame này. Module của tôi giữ nguyên metadata; nó không sửa hoặc phát hiện nhãn ngày/đêm không phù hợp với nội dung ảnh.
 
-Downstream đo median luminance=21/255, fixed health=82,07 và adaptive day=38,66; reference day làm exposure penalty trừ 30 điểm. Action theo adaptive là strong_down_weight, trong khi fixed theo ngưỡng hiện tại sẽ normal. [Diagnostics](../reports/runs/integration_20261006_01/evaluation/selected_failure_explanation.json) giải thích số đo; chưa có quality labels để kết luận action nào đúng.
+Downstream đo median luminance=21/255, fixed health=82,07 và adaptive day=38,66; reference day làm exposure penalty trừ 30 điểm. Action theo adaptive là strong_down_weight, trong khi fixed theo ngưỡng hiện tại sẽ normal. [Diagnostics](evidence/integration_20261006_01/evaluation/selected_failure_explanation.json) giải thích số đo; chưa có quality labels để kết luận action nào đúng.
 
-Đối chiếu [metadata nguồn local](../reports/runs/integration_20261006_01/evidence_20261006_01/phase_1.json) cho thấy handoff khớp nguồn, chưa chứng minh lỗi xử lý người 1. Bài học cho degradation là replay đúng và bảo toàn metadata vẫn chưa đủ chứng minh original pristine hoặc benchmark phản ánh camera vật lý. Không thay tình huống original bằng synthetic severity hay tự gán lại nhãn.
+Đối chiếu [metadata nguồn local](evidence/integration_20261006_01/audit/phase_1.json) cho thấy handoff khớp nguồn, chưa chứng minh lỗi xử lý người 1. Bài học cho degradation là replay đúng và bảo toàn metadata vẫn chưa đủ chứng minh original pristine hoặc benchmark phản ánh camera vật lý. Không thay tình huống original bằng synthetic severity hay tự gán lại nhãn.
 
 ## 5. Engineering decision
 
@@ -91,4 +91,6 @@ Trade-off: Gaussian blur/gain/noise thuận tiện cho paired comparison và tá
 
 Code đã merge và full output đã được downstream tiếp nhận. Phần chờ tiếp theo là code/config selection và review metadata/reference của người 1; bộ nhãn quality và task-level validation chưa có. Ảnh mưa thật có trong subset nhưng rain overlay chưa triển khai; không đồng nhất hai nguồn đó.
 
-Bàn giao: [báo cáo nhóm năm mục](../report.md), [evidence per-phase](../reports/runs/integration_20261006_01/evidence_20261006_01/report.md), [notes degradation](degradation_notes.md) và [kịch bản pitch](pitch_4_minutes.md). Những mô tả “chờ data” trong notes/báo cáo lịch sử phản ánh thời điểm trước handoff; trạng thái nghiệm thu cập nhật là báo cáo này và integration_status. Data/log/generated được gitignore, cần mang kèm khi trình bày; chỉ gửi Markdown không đủ mở ảnh/log.
+Bàn giao: [báo cáo nhóm năm mục](../report.md), [evidence per-phase](evidence/integration_20261006_01/audit/report.md), [notes degradation](degradation_notes.md) và [kịch bản pitch](pitch_4_minutes.md). Những mô tả “chờ data” trong notes/báo cáo lịch sử phản ánh thời điểm trước handoff; trạng thái nghiệm thu cập nhật là báo cáo này và integration_status. Full dataset/generated vẫn gitignore; bản evidence chọn lọc có link công khai bên dưới để người chấm mở CSV/plot/log.
+
+Bằng chứng công khai: [integration_20261006_01](evidence/integration_20261006_01/README.md). Code tích hợp đã công bố tại [commit c29e8f9](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/c29e8f994da629d935f95bb167e8073dfe58cc25). Các ghi chú “chưa commit” mô tả trạng thái tại thời điểm chạy; provenance giữ nguyên lịch sử đó. CSV/plot/log/snapshot chọn lọc mở được trên GitHub; full image replay cần dataset local.

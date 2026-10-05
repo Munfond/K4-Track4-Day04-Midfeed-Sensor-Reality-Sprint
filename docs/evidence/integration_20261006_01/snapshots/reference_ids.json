@@ -1,0 +1,79 @@
+{
+  "data_version": "data-v1",
+  "manifest_path": "data/manifests/originals.jsonl",
+  "manifest_sha256": "ad252ca630b8b35a0e4394ef55d87865aad952da2c4d0f8534f429eab715b57a",
+  "config_path": "configs/data.json",
+  "config_sha256": "d3fa6bd65f7762ec552ae0b9f292e10ab6c423804e44b5aed1d79819660eb13e",
+  "selection": "train originals passing QC thresholds, closest to group median luminance/sharpness",
+  "qc_thresholds": {
+    "day": {
+      "median_luminance": [
+        60,
+        200
+      ],
+      "dark_ratio_max": 0.15,
+      "saturation_ratio_max": 0.05,
+      "log_laplacian_variance_min": 4.0
+    },
+    "night": {
+      "median_luminance": [
+        10,
+        120
+      ],
+      "dark_ratio_max": 0.6,
+      "saturation_ratio_max": 0.05,
+      "log_laplacian_variance_min": 3.0
+    }
+  },
+  "qc_passing_train_candidates": {
+    "day": 50,
+    "night": 43
+  },
+  "visual_review": "pending",
+  "day": [
+    "b27d5dcb-856c0b43",
+    "b68a000f-9a8091f9",
+    "c37b9f20-e161a563",
+    "bfe0801e-20388316",
+    "b79307e6-6cfc1c5b",
+    "bd138b54-7e85623f",
+    "c2f5e5c4-35640746",
+    "c09dfe6c-f23991eb",
+    "b88b6624-3b54ae18",
+    "bc24f222-f198b643"
+  ],
+  "night": [
+    "b2ec68ce-d345784e",
+    "b4946e87-fe31271f",
+    "c7416644-6723bcd7",
+    "bdcd6f24-e3a675af",
+    "c8b0bab6-04d79fe4",
+    "c457bb30-990d6395",
+    "c6549c4a-57169b63",
+    "b8a52657-426c14ae",
+    "c29d692d-ed6435ba",
+    "c33251a6-812a0ea8"
+  ],
+  "fixed": [
+    "b27d5dcb-856c0b43",
+    "b2ec68ce-d345784e",
+    "b4946e87-fe31271f",
+    "b68a000f-9a8091f9",
+    "b79307e6-6cfc1c5b",
+    "b88b6624-3b54ae18",
+    "b8a52657-426c14ae",
+    "bc24f222-f198b643",
+    "bd138b54-7e85623f",
+    "bdcd6f24-e3a675af",
+    "bfe0801e-20388316",
+    "c09dfe6c-f23991eb",
+    "c29d692d-ed6435ba",
+    "c2f5e5c4-35640746",
+    "c33251a6-812a0ea8",
+    "c37b9f20-e161a563",
+    "c457bb30-990d6395",
+    "c6549c4a-57169b63",
+    "c7416644-6723bcd7",
+    "c8b0bab6-04d79fe4"
+  ]
+}

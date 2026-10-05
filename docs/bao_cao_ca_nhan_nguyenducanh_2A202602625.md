@@ -37,9 +37,9 @@ Scorer của người 4 sử dụng bảy feature v1, reference median/MAD từ 
 
 Giả định quan trọng là metadata đáng tin và reference đại diện cho điều kiện cần so sánh. Reference đêm có glare/vùng tối/nhòe; chưa có quality labels. Cấu hình được giữ sau review val và freeze trước test; ngưỡng chưa được tối ưu bằng nhãn người thật. `dawn/dusk/undefined` dùng fixed_fallback hiện có.
 
-**Truy vết:** [repo nhóm](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint), HEAD [`0917990`](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/0917990c809ed503ec29240ff6b61d29bbb8e4cc). Phần integration đang uncommitted tại thời điểm báo cáo; HEAD không đủ định danh source thực chạy, cần [module hashes/runtime/argv](../reports/runs/integration_20261006_01/evaluation/provenance.json). Contract/feature v1.0.0; policy frozen `heuristic-v1-5a7bf047d3a775aa`.
+**Truy vết:** [repo nhóm](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint), HEAD [`0917990`](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/0917990c809ed503ec29240ff6b61d29bbb8e4cc). Phần integration đang uncommitted tại thời điểm báo cáo; HEAD không đủ định danh source thực chạy, cần [module hashes/runtime/argv](evidence/integration_20261006_01/evaluation/provenance.json). Contract/feature v1.0.0; policy frozen `heuristic-v1-5a7bf047d3a775aa`.
 
-Runtime đã chạy: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0, jsonschema 4.26.0, matplotlib 3.11.2. Config frozen và reference/config hashes nằm trong [references.json](../data/features/integration_20261006_01/references.json).
+Runtime đã chạy: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0, jsonschema 4.26.0, matplotlib 3.11.2. Config frozen và reference/config hashes nằm trong [references.json](evidence/integration_20261006_01/snapshots/references.json).
 
 ## 3. Benchmark
 
@@ -58,9 +58,9 @@ Runtime đã chạy: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0, jsonschema 4.26
 | 4 | 0.25 | 34 | 62.08 | 30.88 |
 | 5 | 0.12 | 34 | 44.85 | 30.00 |
 
-Nguồn bảng: [curves.csv](../reports/runs/integration_20261006_01/evaluation/curves.csv), [groups.csv](../reports/runs/integration_20261006_01/evaluation/groups.csv) và [provenance](../reports/runs/integration_20261006_01/evaluation/provenance.json). Các số là **nhóm tự benchmark**, làm tròn hai chữ số; không lấy từ paper. Adaptive giảm 54,54 điểm khi gain giảm 1→0,12. Phản ứng này chưa chứng minh adaptive chính xác hơn fixed khi chưa có quality labels.
+Nguồn bảng: [curves.csv](evidence/integration_20261006_01/evaluation/curves.csv), [groups.csv](evidence/integration_20261006_01/evaluation/groups.csv) và [provenance](evidence/integration_20261006_01/evaluation/provenance.json). Các số là **nhóm tự benchmark**, làm tròn hai chữ số; không lấy từ paper. Adaptive giảm 54,54 điểm khi gain giảm 1→0,12. Phản ứng này chưa chứng minh adaptive chính xác hơn fixed khi chưa có quality labels.
 
-Toàn test: 60 original có adaptive mean 84,31, median 89,79 và population std 16,97; 1.200 synthetic có mean 66,38, median 68,00 và std 20,42. [Split totals](../reports/runs/integration_20261006_01/evaluation/split_totals.csv) giữ đầy đủ số đo. Full coverage=6.300/6.300, test=1.260/1.260; coverage không phải accuracy.
+Toàn test: 60 original có adaptive mean 84,31, median 89,79 và population std 16,97; 1.200 synthetic có mean 66,38, median 68,00 và std 20,42. [Split totals](evidence/integration_20261006_01/evaluation/split_totals.csv) giữ đầy đủ số đo. Full coverage=6.300/6.300, test=1.260/1.260; coverage không phải accuracy.
 
 **Kiểm chứng do tôi thực hiện:**
 
@@ -72,7 +72,7 @@ Toàn test: 60 original có adaptive mean 84,31, median 89,79 và population std
 - Recalibration 20 train reference khớp hash; recompute 6.300 health records và 1.260 val records khớp snapshot/freeze evidence.
 - Tái xuất evaluation; năm CSV groups/samples/curves/score_increases/split_totals giống từng byte. Hashes bảo vệ trước/sau không đổi.
 
-[Evidence năm phase](../reports/runs/integration_20261006_01/evidence_20261006_01/report.md), [audit summary](../reports/runs/integration_20261006_01/evidence_20261006_01/summary.json), [batch log](../data/generated/integration_20261006_01/run_summary.json) và [health handoff](../data/features/integration_20261006_01/handoff.json) là bằng chứng chạy thật.
+[Evidence năm phase](evidence/integration_20261006_01/audit/report.md), [audit summary](evidence/integration_20261006_01/audit/summary.json), [batch log](evidence/integration_20261006_01/generation/run_summary.json) và [health handoff](evidence/integration_20261006_01/snapshots/handoff.json) là bằng chứng chạy thật.
 
 **Lệnh đã chạy từ repo root:**
 
@@ -82,17 +82,17 @@ Toàn test: 60 original có adaptive mean 84,31, median 89,79 và population std
 .\.venv\Scripts\python.exe scripts/build_group_report.py --run-id integration_20261006_01
 ```
 
-Sau prepare, tôi review val rồi gọi finalize với validation-note và reference-review-note; argv đầy đủ nằm trong [provenance](../reports/runs/integration_20261006_01/evaluation/provenance.json). Snapshot pipeline/audit đã tồn tại được bảo vệ: muốn lặp phải chọn run_id/evidence_id mới. Build report chỉ đọc số liệu và cập nhật tài liệu, không chạy lại benchmark.
+Sau prepare, tôi review val rồi gọi finalize với validation-note và reference-review-note; argv đầy đủ nằm trong [provenance](evidence/integration_20261006_01/evaluation/provenance.json). Snapshot pipeline/audit đã tồn tại được bảo vệ: muốn lặp phải chọn run_id/evidence_id mới. Build report chỉ đọc số liệu và cập nhật tài liệu, không chạy lại benchmark.
 
 ## 4. Failure case
 
-Tôi chọn một tình huống: test original `b329fe7d-f06455d3`. [Ảnh thật](../data/raw/bdd100k/images/val/b329fe7d-f06455d3.jpg) nhìn giống cảnh đêm, có trời tối và đèn đường/đèn xe, nhưng metadata nguồn ghi daytime. Phân tích này dùng original, không áp corruption synthetic.
+Tôi chọn một tình huống: test original `b329fe7d-f06455d3`. [Ảnh thật](evidence/integration_20261006_01/images/b329fe7d-f06455d3.jpg) nhìn giống cảnh đêm, có trời tối và đèn đường/đèn xe, nhưng metadata nguồn ghi daytime. Phân tích này dùng original, không áp corruption synthetic.
 
 Số đo: median luminance=21/255; dark_ratio≈9,42%. Fixed health=82,07 nhưng adaptive day=38,66, chênh −43,41 điểm. Day reference median luminance=102/255; exposure penalty do median_luminance trừ 30 điểm. Sharpness và entropy penalties cũng tăng so với reference chung.
 
 Adaptive action là `strong_down_weight`, camera_weight≈0,1494; nếu xét fixed theo ngưỡng hiện tại thì action sẽ `normal`. Vì vậy, metadata/reference có thể làm đổi quyết định dù pixel không đổi. Chưa có quality label hoặc detector benchmark để kết luận action nào đúng.
 
-Tôi dùng [penalty diagnostics](../reports/runs/integration_20261006_01/evaluation/selected_failure_explanation.json), [samples.csv](../reports/runs/integration_20261006_01/evaluation/samples.csv) và [đối chiếu metadata nguồn](../reports/runs/integration_20261006_01/evidence_20261006_01/phase_1.json) để truy nguyên. Handoff khớp label trong nguồn local nên chưa chứng minh người 1 xử lý sai. Tôi giữ nguyên test metadata/score và không tune lại sau khi xem failure.
+Tôi dùng [penalty diagnostics](evidence/integration_20261006_01/evaluation/selected_failure_explanation.json), [samples.csv](evidence/integration_20261006_01/evaluation/samples.csv) và [đối chiếu metadata nguồn](evidence/integration_20261006_01/audit/phase_1.json) để truy nguyên. Handoff khớp label trong nguồn local nên chưa chứng minh người 1 xử lý sai. Tôi giữ nguyên test metadata/score và không tune lại sau khi xem failure.
 
 ## 5. Engineering decision
 
@@ -108,4 +108,6 @@ Dữ liệu cần tiếp theo là metadata/reference đã review, code/config ch
 
 **Bàn giao cá nhân:** code/config/README/tests thuộc phạm vi người 5, [báo cáo nhóm năm mục](../report.md), [tiến độ/evidence](integration_status.md), [năm mục theo thành viên](report_by_member.md) và [kịch bản pitch 3–5 phút](pitch_4_minutes.md). Kịch bản mục tiêu 4 phút đã soạn; chưa có log ghi âm hoặc thời gian một buổi diễn tập. Khi trình bày có thể mở bảng CSV → ảnh failure → penalty JSON → audit summary từ các link trên.
 
-Phần integration hiện nằm trên `feat/integration`, chưa commit/push tại thời điểm lập báo cáo. Dữ liệu/generated/run evidence được gitignore và phải bàn giao kèm thư mục local khi cần mở ảnh/log. Báo cáo này chỉ ghi kết quả run `integration_20261006_01`, không trộn số từ pilot nuScenes hoặc các run riêng của thành viên khác.
+Tại thời điểm chạy, integration nằm trên `feat/integration` và chưa commit; hiện code đã công bố trên main. Bộ evidence chọn lọc có link công khai bên dưới; full image replay vẫn cần dataset local. Báo cáo này chỉ ghi kết quả run `integration_20261006_01`, không trộn số từ pilot nuScenes hoặc các run riêng của thành viên khác.
+
+Bằng chứng công khai: [integration_20261006_01](evidence/integration_20261006_01/README.md). Code tích hợp đã công bố tại [commit c29e8f9](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/c29e8f994da629d935f95bb167e8073dfe58cc25). Các ghi chú “chưa commit” mô tả trạng thái tại thời điểm chạy; provenance giữ nguyên lịch sử đó. CSV/plot/log/snapshot chọn lọc mở được trên GitHub; full image replay cần dataset local.

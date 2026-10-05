@@ -1,0 +1,602 @@
+[
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s1",
+    "seed": 6140714653035510818,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s2",
+    "seed": 13653067180143899845,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s3",
+    "seed": 16892661277474126036,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s4",
+    "seed": 1308106303705764678,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s5",
+    "seed": 15293689226853656394,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s1",
+    "seed": 3662466992262129900,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s2",
+    "seed": 3892428591706548962,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s3",
+    "seed": 13050187248971991953,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s4",
+    "seed": 12035023134680041720,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s5",
+    "seed": 9194379758321405602,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s1",
+    "seed": 11353425658736087569,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s2",
+    "seed": 9734153219651707862,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s3",
+    "seed": 5030347754947454646,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s4",
+    "seed": 3853796722965924303,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s5",
+    "seed": 14734761324653809953,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s1",
+    "seed": 8862487223309178901,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s2",
+    "seed": 12367786477063700563,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s3",
+    "seed": 14834191504221941662,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s4",
+    "seed": 12368283865464945128,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s5",
+    "seed": 6430866991573424177,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s1",
+    "seed": 18004259816202355768,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s2",
+    "seed": 13146692506624468965,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s3",
+    "seed": 7440536943093475850,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s4",
+    "seed": 8388537282475545162,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s5",
+    "seed": 5240360787889039313,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s1",
+    "seed": 13410014960512263779,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s2",
+    "seed": 17030519403257434570,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s3",
+    "seed": 2994608579111815074,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s4",
+    "seed": 6717447394271949462,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s5",
+    "seed": 12740838528946159499,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s1",
+    "seed": 8933956017042468874,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s2",
+    "seed": 16957813715610502528,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s3",
+    "seed": 475243394832134099,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s4",
+    "seed": 18311052118876513054,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s5",
+    "seed": 12034904371147664722,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s1",
+    "seed": 8051818967074932310,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s2",
+    "seed": 14614571608577812396,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s3",
+    "seed": 18123912837225476728,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s4",
+    "seed": 15754264806559392259,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s5",
+    "seed": 3929984705112604463,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s1",
+    "seed": 12770165298719650738,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s2",
+    "seed": 14497035880487764542,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s3",
+    "seed": 9065255280414621460,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s4",
+    "seed": 10355411127135152056,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s5",
+    "seed": 9446592983274359207,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s1",
+    "seed": 7400830499479553179,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s2",
+    "seed": 487999660115812413,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s3",
+    "seed": 6034749052523674570,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s4",
+    "seed": 17434651483777280088,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s5",
+    "seed": 10484358933014205539,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s1",
+    "seed": 12558575122801614199,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s2",
+    "seed": 10734503371577575313,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s3",
+    "seed": 10911028282388353042,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s4",
+    "seed": 17464797778884045807,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s5",
+    "seed": 10925660726514303742,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s1",
+    "seed": 18143042428736234562,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s2",
+    "seed": 7863267021719785564,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s3",
+    "seed": 862851797926362194,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s4",
+    "seed": 2088907105035039364,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s5",
+    "seed": 14137158681424073011,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s1",
+    "seed": 17900736099662901648,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s2",
+    "seed": 10493102014026719762,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s3",
+    "seed": 6059399551655354702,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s4",
+    "seed": 628265656490039440,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s5",
+    "seed": 18293595240808021675,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s1",
+    "seed": 3838024423663106920,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s2",
+    "seed": 6228817125064501272,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s3",
+    "seed": 17359751164807413912,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s4",
+    "seed": 16578028375152667579,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s5",
+    "seed": 8286024746368470046,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s1",
+    "seed": 4926307801799579448,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s2",
+    "seed": 6617580460267175816,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s3",
+    "seed": 5833877241363651378,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s4",
+    "seed": 16561180222554937650,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s5",
+    "seed": 5674168928543706772,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s1",
+    "seed": 6350236860166113132,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s2",
+    "seed": 1580017350591238072,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s3",
+    "seed": 14453991593604101030,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s4",
+    "seed": 3960976271386031410,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s5",
+    "seed": 704256805718069178,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s1",
+    "seed": 9756049090977551933,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s2",
+    "seed": 18407681757325155027,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s3",
+    "seed": 13827309253886216293,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s4",
+    "seed": 6733145918655044736,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s5",
+    "seed": 18291209682482912544,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s1",
+    "seed": 10238066324795516448,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s2",
+    "seed": 10405870297714632840,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s3",
+    "seed": 1622039290529673900,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s4",
+    "seed": 8139858620499189119,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s5",
+    "seed": 4376941170839002745,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s1",
+    "seed": 17555750875383423388,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s2",
+    "seed": 14655354227867225465,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s3",
+    "seed": 13408400135962641149,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s4",
+    "seed": 6007943051669470533,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s5",
+    "seed": 3573534815362550483,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s1",
+    "seed": 13798907025366527263,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s2",
+    "seed": 65365876444223593,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s3",
+    "seed": 13166149283815899210,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s4",
+    "seed": 2205831934622575602,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s5",
+    "seed": 6371038719625176507,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s1",
+    "seed": 4001909518920307662,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s2",
+    "seed": 7199502641185686161,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s3",
+    "seed": 9047211729326132087,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s4",
+    "seed": 5336218714882649365,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s5",
+    "seed": 3353364835746100852,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s1",
+    "seed": 2104541771390780315,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s2",
+    "seed": 4404104137445100404,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s3",
+    "seed": 17575728751465732305,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s4",
+    "seed": 16203650108071985271,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s5",
+    "seed": 14089893826586052318,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s1",
+    "seed": 8916815305439990904,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s2",
+    "seed": 3229473407173217093,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s3",
+    "seed": 6073594755272482433,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s4",
+    "seed": 8731307316526613216,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s5",
+    "seed": 4161953965930506914,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s1",
+    "seed": 17467746812655824605,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s2",
+    "seed": 2609535599283006474,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s3",
+    "seed": 16598450846204505095,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s4",
+    "seed": 13596845279719701868,
+    "pixel_equal": true
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s5",
+    "seed": 6393251055083890244,
+    "pixel_equal": true
+  }
+]

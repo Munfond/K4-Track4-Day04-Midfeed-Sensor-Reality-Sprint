@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "full_bundle": {
+    "manifest": 6300,
+    "features": 6300,
+    "predictions": null
+  },
+  "image_reextraction_count": 145,
+  "max_absolute_difference": 0.0,
+  "replay_scope": "All 6300 records checked for schema/finite/range/coverage; image computation replay on selected 6 parents, all their variants and all 20 train references.",
+  "seconds": 16.535056599999734,
+  "person": 3,
+  "phase": "feature_coverage_and_image_reextraction",
+  "data_kind": "real_bdd100k",
+  "recorded_at_utc": "2026-10-05T19:36:18.712040+00:00"
+}

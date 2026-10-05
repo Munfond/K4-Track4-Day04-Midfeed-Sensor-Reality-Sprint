@@ -33,3 +33,5 @@ Số đo dẫn tới một cải tiến đề xuất: metadata-quality gate trư
 Trade-off là giảm routing sai có thể tăng số frame chưa quyết định và công review. Nhóm giữ nguyên test frozen, cần metadata/reference đã kiểm tra, nhãn quality độc lập và đo detector trên cùng cảnh trước khi dùng score cho phanh, sensor fusion hoặc điều khiển drone.
 
 Trước buổi trình bày, mở sẵn [report nhóm](../report.md), bảng CSV, ảnh failure, penalty JSON và audit summary từ link trong report. Mỗi người tập năm mục của mình từ [bản theo thành viên](report_by_member.md); người trình bày chung dùng kịch bản này. Khi bấm giờ vượt 5 phút, rút phần mô tả feature và audit; giữ số benchmark, failure và trade-off.
+
+Bằng chứng công khai: [integration_20261006_01](evidence/integration_20261006_01/README.md). Code tích hợp đã công bố tại [commit c29e8f9](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/c29e8f994da629d935f95bb167e8073dfe58cc25). Các ghi chú “chưa commit” mô tả trạng thái tại thời điểm chạy; provenance giữ nguyên lịch sử đó. CSV/plot/log/snapshot chọn lọc mở được trên GitHub; full image replay cần dataset local.

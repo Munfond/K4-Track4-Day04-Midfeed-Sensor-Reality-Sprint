@@ -1,0 +1,22 @@
+{
+  "run_id": "integration_20261006_01",
+  "status": "complete",
+  "record_count": 6300,
+  "split_counts": {
+    "test": 1260,
+    "val": 1260,
+    "train": 3780
+  },
+  "manifest": "data\\manifests\\augmented_integration_20261006_01.jsonl",
+  "features": "data\\features\\integration_20261006_01\\features.jsonl",
+  "reference_ids": "data\\manifests\\reference_ids.json",
+  "references": "data\\features\\integration_20261006_01\\references.json",
+  "health_scores": "data\\features\\integration_20261006_01\\health_scores.jsonl",
+  "reference_sha256": "0ba1cbe2c782bc7a23548c6d56d3cfc42808fcee63f1901e18bf3ff065a8fd65",
+  "config_sha256": "8e960bd521a6beb003d0d5051ef23b4d64cd5d733a06a525c1e97001a15f5ab6",
+  "health_file_sha256": "8f3d256afae0f6153c4fe656a037487d340f3e99de783f18bc2fe0f8c415ef2e",
+  "policy_id": "heuristic-v1-5a7bf047d3a775aa",
+  "validation_note": "Reviewed 1260 val frames via summaries, severity curves, rainy originals, low-score originals and noise pairs in reports/runs/integration_20261006_01/validation_review. Original adaptive mean 89.4142; synthetic 68.6560. Retain owner4 default policy and thresholds 75/45 for exploratory evaluation, without tuning. Night brightness/noise can improve scores; blur curves plateau and occasionally rise. No quality labels or ADAS validation.",
+  "reference_review_note": "Integrator inspected 20 train reference thumbnails and full-resolution c33251a6-812a0ea8 and bdcd6f24-e3a675af. Night references include glare, darkness and possible blur/wet scenes; they are representative imperfect baselines, not pristine ground truth. Preserve owner1 delivery; source visual_review remains pending. Require owner1 review before a stronger quality claim.",
+  "limitations": "Heuristic only; synthetic severity is not a quality label. No model training."
+}

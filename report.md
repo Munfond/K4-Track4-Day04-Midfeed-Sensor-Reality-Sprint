@@ -26,9 +26,9 @@ Reference lấy median/MAD từ 20 original train (10 day, 10 night). Baseline f
 
 Giả định: metadata day/night đáng tin và reference train đại diện cho điều kiện cần so sánh. Reference đêm có glare/vùng tối/nhòe; chưa có quality labels. Chọn giữ config trên val rồi freeze trước test; ngưỡng 75/45 là mặc định mô tả, chưa tối ưu bằng nhãn. Unknown/dawn/dusk dùng fixed_fallback hiện có.
 
-**Truy vết code:** [repo nhóm](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint), [HEAD `0917990`](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/0917990c809ed503ec29240ff6b61d29bbb8e4cc); phần tích hợp đang uncommitted trên `feat/integration`, nên HEAD không đủ tái hiện: dùng [source hashes/runtime/argv](reports/runs/integration_20261006_01/evaluation/provenance.json). Contract/feature v1.0.0; formula weighted_reference_penalties_v1; policy `heuristic-v1-5a7bf047d3a775aa`; reference hash `0ba1cbe2c782bc7a23548c6d56d3cfc42808fcee63f1901e18bf3ff065a8fd65`.
+**Truy vết code:** [repo nhóm](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint), [HEAD `0917990`](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/0917990c809ed503ec29240ff6b61d29bbb8e4cc); tại thời điểm chạy, phần tích hợp còn uncommitted trên `feat/integration`, nên HEAD không đủ tái hiện: dùng [source hashes/runtime/argv](docs/evidence/integration_20261006_01/evaluation/provenance.json). Contract/feature v1.0.0; formula weighted_reference_penalties_v1; policy `heuristic-v1-5a7bf047d3a775aa`; reference hash `0ba1cbe2c782bc7a23548c6d56d3cfc42808fcee63f1901e18bf3ff065a8fd65`.
 
-Runtime thực chạy: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0, jsonschema 4.26.0, matplotlib 3.11.2. [Contract/công thức](docs/contracts.md), [config frozen](data/features/integration_20261006_01/references.json).
+Runtime thực chạy: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0, jsonschema 4.26.0, matplotlib 3.11.2. [Contract/công thức](docs/contracts.md), [config frozen](docs/evidence/integration_20261006_01/snapshots/references.json).
 
 Lệnh đọc lại phương pháp cho đúng failure (chỉ đọc, có thể chạy lại):
 
@@ -55,15 +55,15 @@ Bốn corruption synthetic trên ảnh thật × năm mức tạo 6.000 PNG: Gau
 | 4 | 0.25 | 34 | 62.08 | 30.88 | 26 | 35.03 | 37.66 |
 | 5 | 0.12 | 34 | 44.85 | 30.00 | 26 | 30.85 | 30.15 |
 
-**Nguồn số đo ngay cạnh bảng:** [curves.csv](reports/runs/integration_20261006_01/evaluation/curves.csv), [groups.csv (mean/median/population std)](reports/runs/integration_20261006_01/evaluation/groups.csv), [manifest](data/manifests/augmented_integration_20261006_01.jsonl), [provenance](reports/runs/integration_20261006_01/evaluation/provenance.json). Dòng bảng được lấy từ CSV, làm tròn hai chữ số; không chép số từ paper.
+**Nguồn số đo ngay cạnh bảng:** [curves.csv](docs/evidence/integration_20261006_01/evaluation/curves.csv), [groups.csv (mean/median/population std)](docs/evidence/integration_20261006_01/evaluation/groups.csv), [manifest](docs/evidence/integration_20261006_01/snapshots/augmented_integration_20261006_01.jsonl), [provenance](docs/evidence/integration_20261006_01/evaluation/provenance.json). Dòng bảng được lấy từ CSV, làm tròn hai chữ số; không chép số từ paper.
 
 Ở metadata daytime, adaptive giảm 84,54→30,00 điểm từ original đến gain 0,12; ở night giảm 84,01→30,15. Bảng thể hiện phản ứng với giảm sáng có kiểm soát; không chứng minh adaptive chính xác hơn fixed khi chưa có nhãn quality.
 
 Toàn test: 60 original có adaptive mean 84.31, median 89.79, std 16.97; 1.200 synthetic có mean 66.38, median 68.00, std 20.42. Coverage full=6.300/6.300, test=1.260/1.260. Đây là độ phủ, không phải accuracy.
 
-Evidence chạy được: [log generate (count/seed/source/PNG hashes)](data/generated/integration_20261006_01/run_summary.json), [handoff health/freeze](data/features/integration_20261006_01/handoff.json), [audit 5 phase](reports/runs/integration_20261006_01/evidence_20261006_01/report.md). Pixel replay 120 variants khớp; 145 feature records tính lại sai khác tối đa 0; recalibration 20 reference và 6.300 health khớp; năm CSV evaluation byte-equal. 32 unittest đạt; tests fixture được phân biệt với benchmark ảnh thật.
+Evidence chạy được: [log generate (count/seed/source/PNG hashes)](docs/evidence/integration_20261006_01/generation/run_summary.json), [handoff health/freeze](docs/evidence/integration_20261006_01/snapshots/handoff.json), [audit 5 phase](docs/evidence/integration_20261006_01/audit/report.md). Pixel replay 120 variants khớp; 145 feature records tính lại sai khác tối đa 0; recalibration 20 reference và 6.300 health khớp; năm CSV evaluation byte-equal. 32 unittest đạt; tests fixture được phân biệt với benchmark ảnh thật.
 
-Lệnh đã dùng để tạo batch: `python src/run_pipeline.py prepare --run-id integration_20261006_01` rồi `finalize` với review notes; argv đầy đủ của finalize ở [provenance](reports/runs/integration_20261006_01/evaluation/provenance.json). Snapshot tồn tại được bảo vệ; chạy pipeline lần mới phải đổi run_id và review val trước freeze. Lệnh audit đã chạy; để lặp, đổi evidence_id mới:
+Lệnh đã dùng để tạo batch: `python src/run_pipeline.py prepare --run-id integration_20261006_01` rồi `finalize` với review notes; argv đầy đủ của finalize ở [provenance](docs/evidence/integration_20261006_01/evaluation/provenance.json). Snapshot tồn tại được bảo vệ; chạy pipeline lần mới phải đổi run_id và review val trước freeze. Lệnh audit đã chạy; để lặp, đổi evidence_id mới:
 
 
 ```powershell
@@ -78,7 +78,7 @@ Giới hạn benchmark: chưa train classifier, chưa có F1/false alarm, chưa 
 
 **Một tình huống duy nhất:** test original `b329fe7d-f06455d3`, đường ảnh `data/raw/bdd100k/images/val/b329fe7d-f06455d3.jpg`. Không có corruption synthetic áp vào frame này trong failure analysis.
 
-![Ảnh failure thật](data/raw/bdd100k/images/val/b329fe7d-f06455d3.jpg)
+![Ảnh failure thật](docs/evidence/integration_20261006_01/images/b329fe7d-f06455d3.jpg)
 
 Ảnh có trời tối và đèn đường/đèn xe nhưng timeofday=daytime. Đối chiếu local metadata nguồn xác nhận handoff khớp nguồn; đây là nghi vấn về nhãn so với nội dung ảnh, chưa chứng minh người 1 xử lý sai.
 
@@ -86,7 +86,7 @@ Giới hạn benchmark: chưa train classifier, chưa có F1/false alarm, chưa 
 
 Adaptive action là strong_down_weight và camera_weight=0.1494; nếu chỉ dùng fixed thì action theo ngưỡng hiện tại sẽ normal. Reference có thể đổi quyết định dù pixel giống nhau. Chưa có quality label hoặc kết quả detector để kết luận action nào đúng.
 
-Nguyên nhân hỗ trợ bởi diagnostics: scorer chọn reference day theo metadata và so cảnh tối với baseline sáng hơn; cả sharpness/entropy penalties cũng thay đổi. [JSON giải thích từng penalty](reports/runs/integration_20261006_01/evaluation/selected_failure_explanation.json), [samples.csv](reports/runs/integration_20261006_01/evaluation/samples.csv), [audit đối chiếu nguồn metadata](reports/runs/integration_20261006_01/evidence_20261006_01/phase_1.json). Không sửa test metadata/score sau freeze.
+Nguyên nhân hỗ trợ bởi diagnostics: scorer chọn reference day theo metadata và so cảnh tối với baseline sáng hơn; cả sharpness/entropy penalties cũng thay đổi. [JSON giải thích từng penalty](docs/evidence/integration_20261006_01/evaluation/selected_failure_explanation.json), [samples.csv](docs/evidence/integration_20261006_01/evaluation/samples.csv), [audit đối chiếu nguồn metadata](docs/evidence/integration_20261006_01/audit/phase_1.json). Không sửa test metadata/score sau freeze.
 
 
 ## 5. Engineering decision
@@ -105,9 +105,10 @@ Dữ liệu tiếp theo cần có là metadata/reference đã review, nhãn qual
 
 **Nhịp pitch 4 phút (kịch bản phân vai, chưa ghi âm một buổi tập):** 0:00–0:35 Problem/người 1; 0:35–1:30 Method/người 2–3; 1:30–2:35 Benchmark/người 4; 2:35–3:20 Failure/người 5; 3:20–4:00 Decision và trade-off/cả nhóm. Chỉ trình chiếu bảng chính; mở ảnh và JSON khi hỏi nguyên nhân.
 
-**Đường mở demo đã kiểm tra:** [bảng CSV](reports/runs/integration_20261006_01/evaluation/curves.csv) → [ảnh failure](data/raw/bdd100k/images/val/b329fe7d-f06455d3.jpg) → [penalty log](reports/runs/integration_20261006_01/evaluation/selected_failure_explanation.json) → [audit summary](reports/runs/integration_20261006_01/evidence_20261006_01/summary.json). File local/gitignored cần mang cùng thư mục khi trình bày; chỉ gửi report.md không đủ để mở ảnh/log.
+**Đường mở demo đã kiểm tra:** [bảng CSV](docs/evidence/integration_20261006_01/evaluation/curves.csv) → [ảnh failure](docs/evidence/integration_20261006_01/images/b329fe7d-f06455d3.jpg) → [penalty log](docs/evidence/integration_20261006_01/evaluation/selected_failure_explanation.json) → [audit summary](docs/evidence/integration_20261006_01/audit/summary.json). Các link CSV/ảnh failure/log ở trên dẫn tới bộ evidence được công bố; full dataset vẫn lưu local để chạy lại từ ảnh.
 
 **Tự đối chiếu rubric:** benchmark/demo 40% có code, batch log, CSV và replay; failure 25% có một frame, nguyên nhân và tác động action; thuật toán 20% có input/output/công thức/giả định/nguồn; trade-off 15% có gate, uncertainty/coverage và giới hạn ADAS/robot/drone. Đây là checklist đáp ứng yêu cầu, không tự chấm điểm giảng viên.
 
-[Phụ lục số liệu đầy đủ](reports/runs/integration_20261006_01/report_detailed.md) và [tiến độ/phân công/evidence](docs/integration_status.md).
+[Bộ evidence công bố](docs/evidence/integration_20261006_01/README.md) và [tiến độ/phân công/evidence](docs/integration_status.md).
 
+Bằng chứng công khai: [integration_20261006_01](docs/evidence/integration_20261006_01/README.md). Code tích hợp đã công bố tại [commit c29e8f9](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/c29e8f994da629d935f95bb167e8073dfe58cc25). Các ghi chú “chưa commit” mô tả trạng thái tại thời điểm chạy; provenance giữ nguyên lịch sử đó. CSV/plot/log/snapshot chọn lọc mở được trên GitHub; full image replay cần dataset local.

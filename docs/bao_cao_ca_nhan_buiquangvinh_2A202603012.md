@@ -46,3 +46,7 @@ noise nhẹ, tăng sáng ảnh đêm và blur đạt trần có thể làm score
 review flag của người 1 được giữ nguyên; review local ghi riêng trong provenance.
 Chưa train model hoặc kiểm chứng bằng nhãn chất lượng, chưa báo accuracy/F1/AP hay
 độ tin cậy ADAS. Dữ liệu/output được gitignore; code và báo cáo bàn giao trên nhánh `health`.
+
+Bằng chứng công khai: [integration_20261006_01](evidence/integration_20261006_01/README.md). Code tích hợp đã công bố tại [commit c29e8f9](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/c29e8f994da629d935f95bb167e8073dfe58cc25). Các ghi chú “chưa commit” mô tả trạng thái tại thời điểm chạy; provenance giữ nguyên lịch sử đó. CSV/plot/log/snapshot chọn lọc mở được trên GitHub; full image replay cần dataset local.
+
+Bộ công khai trên là lượt tích hợp nhóm `integration_20261006_01` do integrator chạy bằng scorer người 4; không thay thế evidence cho lượt riêng `p4_bdd100k_20261006_04` hoặc pilot nuScenes được mô tả ở trên. Các số đếm/action của những lượt riêng chưa được công bố trong bundle này.

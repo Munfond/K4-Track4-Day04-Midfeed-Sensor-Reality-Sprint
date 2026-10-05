@@ -35,7 +35,7 @@ API: `extract_features(image_rgb) -> dict[str,float]`. Input RGB uint8 `(360,640
 
 Grayscale do Pillow tạo; float64 trước Laplacian/residual để tránh overflow; median filter Pillow 3×3. Feature không chép label/severity/split. Noise/texture có thể tăng Laplacian/entropy/residual; residual không phải noise estimate thuần. Giả định input preprocessing đúng contract; feature không tự xác minh truthfulness của metadata hoặc chất lượng reference.
 
-**Truy vết code:** [commit triển khai `069f950`](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/069f95052746b4eccf1be8c39c970d7bf28c2989), đã merge qua PR #2. HEAD integration=`0917990`; code người 5 chưa commit nên dùng [module hashes/runtime/argv](../reports/runs/integration_20261006_01/evaluation/provenance.json). Runtime full run: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0; [contract](contracts.md) và [feature bundle](../data/features/integration_20261006_01/features.jsonl).
+**Truy vết code:** [commit triển khai `069f950`](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/069f95052746b4eccf1be8c39c970d7bf28c2989), đã merge qua PR #2. HEAD integration=`0917990`; tại thời điểm chạy code người 5 chưa commit nên dùng [module hashes/runtime/argv](evidence/integration_20261006_01/evaluation/provenance.json). Runtime full run: Python 3.12.14, NumPy 2.5.3, Pillow 12.3.0; [contract](contracts.md) và [feature bundle](evidence/integration_20261006_01/snapshots/features.jsonl).
 
 ## 3. Benchmark
 
@@ -52,13 +52,13 @@ Grayscale do Pillow tạo; float64 trước Laplacian/residual để tránh over
 | 4 | 0.25 | 34 | 23.12 | 8.78 | 3.08 | 5.42 |
 | 5 | 0.12 | 34 | 11.09 | 24.44 | 1.89 | 4.41 |
 
-Nguồn số đo: [member3_feature_summary.csv](../reports/runs/integration_20261006_01/evaluation/member3_feature_summary.csv), [provenance thống kê + IDs](../reports/runs/integration_20261006_01/evaluation/member3_feature_summary_provenance.json), [features](../data/features/integration_20261006_01/features.jsonl) và [manifest](../data/manifests/augmented_integration_20261006_01.jsonl). Người 5 tổng hợp từ output module, không chạy feature formula khác hoặc lấy số từ paper; bảng làm tròn hai chữ số, CSV giữ số đầy đủ và cả bảy feature.
+Nguồn số đo: [member3_feature_summary.csv](evidence/integration_20261006_01/evaluation/member3_feature_summary.csv), [provenance thống kê + IDs](evidence/integration_20261006_01/evaluation/member3_feature_summary_provenance.json), [features](evidence/integration_20261006_01/snapshots/features.jsonl) và [manifest](evidence/integration_20261006_01/snapshots/augmented_integration_20261006_01.jsonl). Người 5 tổng hợp từ output module, không chạy feature formula khác hoặc lấy số từ paper; bảng làm tròn hai chữ số, CSV giữ số đầy đủ và cả bảy feature.
 
 Khi gain giảm 1→0,12, mean median Y giảm 92,29→11,09 và mean dark ratio tăng 0,66→24,44%. Laplacian/entropy cũng giảm trên tập này. Đây là phản ứng controlled paired của metric; không suy ra accuracy detector, camera hỏng hoặc quality label từ xu hướng đó.
 
-**Kết quả kiểm chứng thực tế:** coverage=6.300/6.300 unique IDs; validator schema/finite/range hợp lệ; không duplicate/NaN. Audit tính lại **145 records từ ảnh thật**, bao gồm 120 synthetic của 6 parents, 6 originals và toàn bộ 20 reference train (có overlap), max absolute difference=0. Đây là sample image-computation replay; full run trước đã tính tất cả 6.300 frame. [Evidence phase 3](../reports/runs/integration_20261006_01/evidence_20261006_01/phase_3.json), [feature replay](../reports/runs/integration_20261006_01/evidence_20261006_01/feature_replay.json).
+**Kết quả kiểm chứng thực tế:** coverage=6.300/6.300 unique IDs; validator schema/finite/range hợp lệ; không duplicate/NaN. Audit tính lại **145 records từ ảnh thật**, bao gồm 120 synthetic của 6 parents, 6 originals và toàn bộ 20 reference train (có overlap), max absolute difference=0. Đây là sample image-computation replay; full run trước đã tính tất cả 6.300 frame. [Evidence phase 3](evidence/integration_20261006_01/audit/phase_3.json), [feature replay](evidence/integration_20261006_01/audit/feature_replay.json).
 
-Người 4/người 5 đã dùng full feature bundle để calibration/health và evaluation; [handoff](../data/features/integration_20261006_01/handoff.json). Việc downstream chạy được không biến health heuristic thành ground truth chất lượng. Các con số health trong báo cáo nhóm thuộc scorer người 4.
+Người 4/người 5 đã dùng full feature bundle để calibration/health và evaluation; [handoff](evidence/integration_20261006_01/snapshots/handoff.json). Việc downstream chạy được không biến health heuristic thành ground truth chất lượng. Các con số health trong báo cáo nhóm thuộc scorer người 4.
 
 **Lịch sử kiểm thử, tách khỏi benchmark thật:** báo cáo 05/10 ghi bảy kiểm tra tập trung, 12 repository tests, validator fixture 4 manifest/4 feature và compileall đạt. Harness tập trung là tạm vì người 5 sở hữu tests lâu dài; các số này không phải dataset thật. Bộ test tích hợp hiện tại có 32 tests đạt, do người 5 nghiệm thu. Ví dụ frame đen trong Metrics.md vẫn là fixture, không phải BDD100K.
 
@@ -69,15 +69,15 @@ Lệnh đã tạo feature qua integration: `python src/run_pipeline.py prepare -
 .\.venv\Scripts\python.exe scripts/summarize_member_features.py --run-id integration_20261006_01
 ```
 
-Script thống kê thuộc người 5, chỉ đọc feature/manifest và ghi CSV/provenance báo cáo, không sửa feature output. Audit computation đã chạy bằng `scripts/audit_real_run.py --run-id integration_20261006_01 --evidence-id evidence_20261006_01`; muốn lặp phải đổi evidence_id. [Audit summary](../reports/runs/integration_20261006_01/evidence_20261006_01/summary.json) giữ command/hash/scope; feature CLI từ chối overwrite output đã có.
+Script thống kê thuộc người 5, chỉ đọc feature/manifest và ghi CSV/provenance báo cáo, không sửa feature output. Audit computation đã chạy bằng `scripts/audit_real_run.py --run-id integration_20261006_01 --evidence-id evidence_20261006_01`; muốn lặp phải đổi evidence_id. [Audit summary](evidence/integration_20261006_01/audit/summary.json) giữ command/hash/scope; feature CLI từ chối overwrite output đã có.
 
 ## 4. Failure case
 
-Một frame chung: original test `b329fe7d-f06455d3` [nhìn giống cảnh đêm](../data/raw/bdd100k/images/val/b329fe7d-f06455d3.jpg) nhưng metadata ghi daytime. Feature của frame có median luminance=21/255 và dark_ratio≈9,42%, phản ánh cảnh tối; feature API không đọc timeofday để đổi vector hoặc gán nhãn.
+Một frame chung: original test `b329fe7d-f06455d3` [nhìn giống cảnh đêm](evidence/integration_20261006_01/images/b329fe7d-f06455d3.jpg) nhưng metadata ghi daytime. Feature của frame có median luminance=21/255 và dark_ratio≈9,42%, phản ánh cảnh tối; feature API không đọc timeofday để đổi vector hoặc gán nhãn.
 
-Downstream dùng vector này với day reference median Y=102/255, exposure penalty do median_luminance trừ 30 điểm. Fixed health=82,07 và adaptive day=38,66, khiến action theo adaptive thành strong_down_weight; fixed theo ngưỡng hiện tại sẽ normal. [Penalty JSON](../reports/runs/integration_20261006_01/evaluation/selected_failure_explanation.json) ghi rõ số đo. Đây là bằng chứng reference/metadata có thể đổi diễn giải của **cùng vector**, chưa chứng minh feature tính sai hay action nào đúng.
+Downstream dùng vector này với day reference median Y=102/255, exposure penalty do median_luminance trừ 30 điểm. Fixed health=82,07 và adaptive day=38,66, khiến action theo adaptive thành strong_down_weight; fixed theo ngưỡng hiện tại sẽ normal. [Penalty JSON](evidence/integration_20261006_01/evaluation/selected_failure_explanation.json) ghi rõ số đo. Đây là bằng chứng reference/metadata có thể đổi diễn giải của **cùng vector**, chưa chứng minh feature tính sai hay action nào đúng.
 
-[Đối chiếu nguồn](../reports/runs/integration_20261006_01/evidence_20261006_01/phase_1.json) cho thấy handoff khớp metadata local, chưa kết luận lỗi người 1. Original không có synthetic corruption trong phân tích này; không sửa test vector/metadata hoặc tune sau khi xem failure.
+[Đối chiếu nguồn](evidence/integration_20261006_01/audit/phase_1.json) cho thấy handoff khớp metadata local, chưa kết luận lỗi người 1. Original không có synthetic corruption trong phân tích này; không sửa test vector/metadata hoặc tune sau khi xem failure.
 
 ## 5. Engineering decision
 
@@ -89,4 +89,6 @@ Trade-off: feature mức thấp dễ giải thích và phù hợp phân tích of
 
 Bàn giao đã hoàn tất: code feature và Metrics.md đã merge, full feature JSONL được downstream sử dụng, evidence replay và thống kê thật có link ở trên. Các nhận xét “chưa có data” trong tài liệu ngày 05/10 là lịch sử trước handoff; báo cáo này cập nhật trạng thái 06/10. Phần còn thiếu của nhóm là prepare_data code/config, review reference/metadata, quality labels và task-level benchmark; chưa train model hoặc báo F1/false alarm/AP/fusion benefit/ADAS reliability.
 
-Xem [báo cáo nhóm](../report.md), [tiến độ/evidence](integration_status.md), [năm mục theo thành viên](report_by_member.md) và [kịch bản pitch 3–5 phút](pitch_4_minutes.md). Data/log được gitignore và cần bàn giao kèm khi trình bày; các link local không đi theo Markdown nếu chỉ gửi riêng file báo cáo.
+Xem [báo cáo nhóm](../report.md), [tiến độ/evidence](integration_status.md), [năm mục theo thành viên](report_by_member.md) và [kịch bản pitch 3–5 phút](pitch_4_minutes.md). Các link số đo/diagnostics đã chuyển sang bộ evidence công khai; full dataset vẫn local để image replay.
+
+Bằng chứng công khai: [integration_20261006_01](evidence/integration_20261006_01/README.md). Code tích hợp đã công bố tại [commit c29e8f9](https://github.com/Munfond/K4-Track4-Day04-Midfeed-Sensor-Reality-Sprint/commit/c29e8f994da629d935f95bb167e8073dfe58cc25). Các ghi chú “chưa commit” mô tả trạng thái tại thời điểm chạy; provenance giữ nguyên lịch sử đó. CSV/plot/log/snapshot chọn lọc mở được trên GitHub; full image replay cần dataset local.

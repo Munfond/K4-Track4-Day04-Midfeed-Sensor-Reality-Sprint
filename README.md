@@ -67,11 +67,17 @@ Audit đối chiếu data với metadata nguồn local, kiểm tra full batch, r
 
 [report.md](report.md) là bản nhóm theo đúng năm mục Problem → Method → Benchmark → Failure case → Engineering decision. Chọn bảng giảm sáng trên test làm benchmark chính; số liệu lấy từ CSV thực chạy, nguồn/version/commands đặt cạnh Method/Benchmark. [Bản theo từng thành viên](docs/report_by_member.md) và [kịch bản pitch 4 phút](docs/pitch_4_minutes.md) dùng chung một failure case.
 
-Tái dựng báo cáo từ evidence hiện có: `.\.venv\Scripts\python.exe scripts/build_group_report.py --run-id integration_20261006_01`. Script cập nhật root `report.md` và report của run; giữ báo cáo số liệu dài trước đó trong `reports/runs/<run_id>/report_detailed.md`. Không chạy lại benchmark hay sửa artifact tính toán/owner code. Root report được Git theo dõi; ảnh/log/data của run vẫn local gitignored, cần mang cùng workspace khi trình bày.
+Tái dựng báo cáo từ evidence hiện có: `.\.venv\Scripts\python.exe scripts/build_group_report.py --run-id integration_20261006_01`, sau đó `python scripts/export_benchmark_evidence.py --update-docs` để cập nhật link công khai. Script giữ báo cáo số liệu dài trong `reports/runs/<run_id>/report_detailed.md`; không chạy lại benchmark hoặc sửa output tính toán/owner code. [Bộ evidence công khai](docs/evidence/integration_20261006_01/README.md) gồm CSV, plot, log audit, snapshot feature/health và một failure case. Full dataset/generated vẫn local gitignored.
 
 Tải ảnh cùng detection labels/metadata từ [nguồn BDD100K](https://github.com/bdd100k/bdd100k). Chọn subset khoảng 300 ảnh; giữ ảnh gốc và mọi bản degraded cùng split. Weather/timeofday không phải nhãn quality. Nhãn synthetic là proxy và phải báo cáo riêng với nhãn người thật. Nhãn detection chưa được chuyển thành health labels.
 
-Lưu dữ liệu trong `data/raw/`, ảnh generated trong `data/generated/`; các đường này đã gitignore. Model binary trong `models/`; báo cáo lần chạy trong `reports/runs/<run_id>/`. Chỉ commit code/config, không commit dataset, credentials hoặc model binary.
+Lưu dữ liệu trong `data/raw/`, ảnh generated trong `data/generated/`; các đường này đã gitignore. Model binary trong `models/`; báo cáo lần chạy trong `reports/runs/<run_id>/`. Commit code/config/docs và evidence chọn lọc tại `docs/evidence/`; không commit toàn bộ dataset, credentials hoặc model binary. `.gitattributes` giữ nguyên byte evidence để checksum dùng được trên Windows/Linux.
+
+## Kiểm tra bằng chứng và nộp riêng
+
+[TEAMMATES.md](TEAMMATES.md) liệt kê đúng năm thành viên. Các báo cáo cá nhân nằm trong `docs/bao_cao_ca_nhan_*.md`; hiện có báo cáo của người 2–5, người 1 cần bổ sung bản riêng. Mỗi người tự nộp báo cáo của mình và cùng URL repository trên VLearn; chưa có bằng chứng xác nhận năm lượt nộp. Báo cáo người 4 còn bố cục lịch sử, cần owner hoàn thiện năm mục trước khi nộp.
+
+Kiểm tra bản evidence từ một clone không có dataset bằng `python scripts/verify_published_evidence.py` sau khi cài requirements. Lệnh kiểm tra checksum 35 artifact, tính lại 6.300 health từ snapshot feature/reference frozen và đối chiếu 12 nhóm trong bảng brightness_down chính. Đây là kiểm tra snapshot; pixel replay/image feature reextraction của lượt chạy trước được ghi trong audit log.
 
 ## Quy trình nhóm
 

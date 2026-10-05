@@ -1,0 +1,582 @@
+[
+  {
+    "sample_id": "b20eae11-18cd8ca2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_down_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_brightness_up_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_blur_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b20eae11-18cd8ca2_gaussian_noise_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_down_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_brightness_up_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_blur_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b229488e-e4714bb7_gaussian_noise_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_down_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_brightness_up_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_blur_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b27d5dcb-856c0b43_gaussian_noise_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_down_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_brightness_up_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_blur_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ddae9c-9aafceae_gaussian_noise_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b2ec68ce-d345784e",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_down_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_brightness_up_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_blur_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b329fe7d-f06455d3_gaussian_noise_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b4946e87-fe31271f",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b68a000f-9a8091f9",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b79307e6-6cfc1c5b",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_down_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_brightness_up_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_blur_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s1",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s2",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s3",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s4",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b7d875e8-35d6222a_gaussian_noise_s5",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b88b6624-3b54ae18",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "b8a52657-426c14ae",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "bc24f222-f198b643",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "bd138b54-7e85623f",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "bdcd6f24-e3a675af",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "bfe0801e-20388316",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c09dfe6c-f23991eb",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c29d692d-ed6435ba",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c2f5e5c4-35640746",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c33251a6-812a0ea8",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c37b9f20-e161a563",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c457bb30-990d6395",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c6549c4a-57169b63",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c7416644-6723bcd7",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "sample_id": "c8b0bab6-04d79fe4",
+    "max_absolute_difference": 0.0
+  }
+]

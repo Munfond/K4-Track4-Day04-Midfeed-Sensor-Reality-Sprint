@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "evaluated_frames": 6300,
+  "split_counts": {
+    "test": 1260,
+    "val": 1260,
+    "train": 3780
+  },
+  "csv_byte_equal": {
+    "groups.csv": true,
+    "samples.csv": true,
+    "curves.csv": true,
+    "score_increases.csv": true,
+    "split_totals.csv": true
+  },
+  "report": "reports\\runs\\integration_20261006_01\\evidence_20261006_01\\evaluation_replay\\report.md",
+  "seconds": 15.998140399999102,
+  "person": 5,
+  "phase": "evaluation_report_reproduction",
+  "data_kind": "real_bdd100k",
+  "recorded_at_utc": "2026-10-05T19:36:51.298011+00:00"
+}
