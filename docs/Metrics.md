@@ -105,22 +105,4 @@ Các bài báo dưới đây gợi ý cách chọn tín hiệu mức thấp và 
 - Hu và cộng sự, [Toward a No-Reference Quality Metric for Camera-Captured Images](https://pubmed.ncbi.nlm.nih.gov/34847052/), *IEEE Transactions on Cybernetics*, 2023. NR-IQA của bài kết hợp feature mức thấp với feature ngữ nghĩa; các metric thô của project không phải metric đầy đủ đó.
 - Pertuz và cộng sự, [Analysis of Focus Measure Operators for Shape-from-Focus](https://www.sciencedirect.com/science/article/pii/S0031320312004736), *Pattern Recognition*, 2013. Bài so sánh toán tử lấy nét trong các điều kiện noise, contrast, saturation và window size, qua đó cho thấy cần thận trọng khi chỉ dùng một Laplacian measure.
 
-## Báo cáo đóng góp cá nhân
-
-| Thông tin | Giá trị |
-|---|---|
-| Người đóng góp | Nguyễn Hoàng Duy |
-| MSSV | 2A202602751 |
-| Vai trò | Người 3 — Đặc trưng/Metric |
-| Nhánh | `feat/features` |
-
-### Nội dung đã thực hiện
-
-- Triển khai API `extract_features(image_rgb)` với đủ bảy feature theo công thức, thứ tự, miền giá trị và tiền xử lý trong contract v1.0.0.
-- Bổ sung CLI xử lý theo lô, đọc manifest và ghi `data/features/<run_id>/features.jsonl`; đổi kích thước ảnh gốc bằng BILINEAR, giữ nguyên kích thước ảnh tổng hợp, kiểm tra ID/đường dẫn và dừng kèm `sample_id` khi dữ liệu lỗi.
-- Viết tài liệu feature bằng tiếng Việt, gồm công thức, đơn vị, cách diễn giải, yếu tố gây nhiễu, lệnh tái hiện và nguồn khoa học tham khảo.
-- Chạy bảy kiểm tra tập trung, 12 test hiện có, validator trên fixture mẫu và kiểm tra biên dịch Python; tất cả đều đạt.
-
-### Giới hạn bàn giao
-
-Chưa tạo `features.jsonl` từ dữ liệu thật vì checkout hiện không có manifest đã bổ sung ảnh suy giảm và ảnh đầu vào. Record ví dụ trong tài liệu là dữ liệu kiểm thử ảnh đen đồng nhất, không phải kết quả BDD100K hay benchmark của nhóm.
+\n
