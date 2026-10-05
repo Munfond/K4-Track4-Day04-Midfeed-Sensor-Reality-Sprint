@@ -360,8 +360,10 @@ def score_bundle(feature_rows, metadata, references, config, split=None):
                      and images[sid].get("parent_image_id") == sid,
                      f"Reference metadata changed: {sid}")
             _require(images[sid]["timeofday"] == row["timeofday"]
+                     and images[sid]["sequence_id"] == row["sequence_id"]
+                     and images[sid].get("severity") == 0
                      and _feature_values(features[sid]) == row["features"],
-                     f"Reference features/timeofday changed: {sid}")
+                     f"Reference features/timeofday/sequence changed: {sid}")
     if config["frozen"]:
         val_ids = set(config["validation"]["sample_ids"])
         _require(not any(sid in val_ids and images[sid]["split"] != "val" for sid in images),
@@ -454,10 +456,11 @@ def _write_new(path, value, jsonl=False):
 
 
 def _select_reference_ids(value):
-    """Accept a flat ID list or explicit day/night lists from person 1."""
+    """Accept ID lists or the enriched day/night handoff from person 1."""
     if isinstance(value, dict):
-        _require(set(value) == {"day", "night"}, "Reference object requires day and night lists")
-        _require(all(isinstance(value[key], list) for key in value), "Reference groups must be lists")
+        _require({"day", "night"} <= set(value), "Reference object requires day and night lists")
+        _require(all(isinstance(value[key], list) and bool(value[key]) for key in ("day", "night")),
+                 "Reference groups must be nonempty lists")
         ids = value["day"] + value["night"]
     else:
         ids = value
@@ -465,7 +468,32 @@ def _select_reference_ids(value):
     _require(all(isinstance(sid, str) and re.fullmatch(r"[A-Za-z0-9_-]+", sid) for sid in ids),
              "Invalid reference ID")
     _require(len(ids) == len(set(ids)), "Duplicate reference IDs")
+    if isinstance(value, dict) and "fixed" in value:
+        fixed = value["fixed"]
+        _require(isinstance(fixed, list) and all(isinstance(sid, str) for sid in fixed),
+                 "Fixed reference IDs must be a list of strings")
+        _require(len(fixed) == len(set(fixed)) and set(fixed) == set(ids),
+                 "Fixed reference IDs must equal the unique day/night union")
     return ids
+
+
+def _validate_reference_source(value, metadata, repo_root=None):
+    """Verify the source manifest hash and original rows for enriched handoffs."""
+    if not isinstance(value, dict) or "manifest_sha256" not in value:
+        return {}
+    root = Path(repo_root or Path(__file__).resolve().parents[1]).resolve()
+    relative = value.get("manifest_path")
+    _require(isinstance(relative, str) and bool(relative), "Reference handoff requires manifest_path")
+    _require(not Path(relative).is_absolute(), "Reference manifest_path must be repo-relative")
+    path = (root / relative).resolve()
+    _require(path.is_relative_to(root), "Reference manifest_path escapes repository")
+    actual_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+    _require(actual_hash == value["manifest_sha256"], "Reference source manifest hash mismatch")
+    source = _metadata_index(_read_jsonl(path))
+    originals = {sid: row for sid, row in metadata.items() if row.get("corruption") == "original"}
+    _require(source == originals, "Reference source originals differ from the scoring manifest")
+    return {"source_manifest_path": relative, "source_manifest_sha256": actual_hash,
+            "source_visual_review": value.get("visual_review", "unspecified")}
 
 
 def main(argv=None):
@@ -506,6 +534,8 @@ def main(argv=None):
                 _feature_values(row)
             reference_file = _read_json(args.reference_ids)
             ids = _select_reference_ids(reference_file)
+            provenance = _validate_reference_source(reference_file, metadata)
+            provenance["reference_ids_sha256"] = hashlib.sha256(Path(args.reference_ids).read_bytes()).hexdigest()
             _require(set(ids) <= set(indexed), "Reference feature coverage is incomplete")
             if isinstance(reference_file, dict):
                 for mode in ("day", "night"):
@@ -513,6 +543,7 @@ def main(argv=None):
                                  for sid in reference_file[mode]), f"Reference IDs mislabeled as {mode}")
             config = prepare_config(_read_json(args.config))
             output = calibrate([indexed[sid] for sid in ids], images, config)
+            output["provenance"] = provenance
             _write_new(args.output, output)
             summary = {"reference_count": len(ids), "reference_sha256": output["reference_sha256"],
                        "policy_id": output["config"]["policy_id"], "frozen": False}
