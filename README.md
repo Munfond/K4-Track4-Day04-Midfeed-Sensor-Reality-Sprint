@@ -2,7 +2,7 @@
 
 Shared contract and collaboration starter for a five-person BDD100K lab.
 
-**Bắt đầu:** đọc [contract v1](docs/contracts.md) và [phân công 5 người](docs/team_ownership.md). Đây là schema/interface đã có validator; các module data, degradation, feature và training do nhóm tiếp tục triển khai. Chưa có model đã train hoặc kết quả BDD100K trong repo này.
+**Bắt đầu:** đọc [contract v1](docs/contracts.md), [ownership 5 người](docs/team_ownership.md) và [nhiệm vụ chi tiết](docs/sprint_assignments.md). Sprint hiện tại tập trung data, degradation, feature, health heuristic và evaluation; **train model tạm hoãn**. Repo có contract/validator, chưa có các module pipeline hoặc kết quả BDD100K.
 
 ## Kiểm tra schema
 
@@ -27,11 +27,10 @@ Trên Linux/macOS thay `.\.venv\Scripts\python.exe` bằng `.venv/bin/python`.
 ## Mục tiêu triển khai
 
 ```text
-BDD100K manifest → degradation → features → train classifier
-                                         → predictions → evaluation
+BDD100K manifest → degradation → features → health heuristic → evaluation
 ```
 
-Model đầu tiên: `StandardScaler + LogisticRegression`, train bằng bảy feature v1; chọn regularization bằng validation macro-F1; chỉ fit scaler trên train. Health model và health heuristic báo cáo riêng.
+Người 4 triển khai calibration train-only và health heuristic; so sánh fixed/day-night reference, chọn config trên val, đóng băng trước test. Record health tạm thời và output paths được chốt trong nhiệm vụ chi tiết. Schema model/prediction và fixtures ML hiện có dành cho giai đoạn sau; không dùng chúng để giả lập health heuristic hoặc kết quả model đã train.
 
 Tải ảnh cùng detection labels/metadata từ [nguồn BDD100K](https://github.com/bdd100k/bdd100k). Chọn subset khoảng 300 ảnh; giữ ảnh gốc và mọi bản degraded cùng split. Weather/timeofday không phải nhãn quality. Nhãn synthetic là proxy và phải báo cáo riêng với nhãn người thật. Nhãn detection chưa được chuyển thành health labels.
 

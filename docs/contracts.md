@@ -1,5 +1,7 @@
 # Contract v1.0.0 — dùng chung cho 5 người
 
+**Scope hiện tại:** train model tạm hoãn. Người 3 sở hữu feature, người 4 baseline/calibration, người 5 tích hợp/evaluate. [Nhiệm vụ và record heuristic tạm thời](sprint_assignments.md). Phần model/prediction dưới đây dành cho giai đoạn sau. Manifest/features giữ v1; validator ML hiện có không validate heuristic record.
+
 ## 1. Quy ước toàn pipeline
 
 - Format trao đổi: **JSONL UTF-8**, mỗi dòng một object; model metadata là một file JSON.
@@ -47,7 +49,7 @@ Parameter bắt buộc:
 
 Parameters phải phản ánh config thực sự chạy; version v1 không bắt buộc đúng các dải khởi đầu nhưng phải lưu config/hash. Noise dùng RNG cục bộ, không thay global RNG. Tạo từng mức trực tiếp từ original đã resize, không áp dụng tích lũy.
 
-Người 1 xuất `data/manifests/originals.jsonl`. Người 2 đọc file này, thêm synthetic vào `data/manifests/augmented.jsonl` mà không sửa originals. Người 3 trích feature cho toàn bộ augmented manifest.
+Người 1 xuất `data/manifests/originals.jsonl`. Người 2 đọc file này, thêm synthetic vào `data/manifests/augmented_<run_id>.jsonl` mà không sửa originals. Người 3 trích feature cho toàn bộ augmented manifest.
 
 ## 3. Feature — người 3 tạo
 
@@ -67,7 +69,7 @@ Thứ tự input model được cố định trong `configs/contract.json`; JSON
 
 Y = Pillow RGB `.convert('L')` 8 bit; convert sang float64 trước tính Laplacian/residual để tránh uint8 overflow. Log tự nhiên khác entropy log₂. Không thêm severity, label, corruption type vào feature: tránh học trực tiếp quy tắc nhãn. Noise residual vẫn chứa texture/cạnh; không gọi đó là noise estimate thuần.
 
-File `data/features/features.jsonl` phải phủ chính xác toàn bộ ID trong augmented manifest. Label/split lấy bằng join manifest, không lặp lại trong feature record. Khi chạy train, filter label!=null; báo số mẫu bị bỏ và tỷ lệ class/split.
+File `data/features/<run_id>/features.jsonl` phải phủ chính xác toàn bộ ID trong augmented manifest. Label/split lấy bằng join manifest, không lặp lại trong feature record. Khi chạy train ở giai đoạn sau, filter label!=null; báo số mẫu bị bỏ và tỷ lệ class/split.
 
 ## 4. Model metadata — người 4 tạo
 
@@ -90,7 +92,7 @@ health >=75    → normal
 health<45      → strong_down_weight
 ```
 
-Prediction có thể là subset manifest; evaluator phải kiểm tra coverage chính xác với split muốn đánh giá. Model metadata bắt buộc khi validate predictions. Heuristic baseline không ghi vào prediction schema này: người 3 xuất file riêng `data/features/baseline_scores.jsonl`, người 5 ghép theo ID để so sánh. Phải báo metric thật hoặc proxy đúng tên; health chưa phải confidence ADAS đã calibrated.
+Prediction có thể là subset manifest; evaluator phải kiểm tra coverage chính xác với split muốn đánh giá. Model metadata bắt buộc khi validate predictions. Heuristic baseline không ghi vào prediction schema này: người 4 xuất file riêng `data/features/<run_id>/health_scores.jsonl`, người 5 ghép theo ID để đánh giá. Phải báo metric thật hoặc proxy đúng tên; health chưa phải confidence ADAS đã calibrated.
 
 ## 6. API và bàn giao
 
@@ -109,7 +111,7 @@ File reader/runner là người 5 sở hữu. Module không chạy workload khi 
 
 ## 7. Nhãn và giới hạn
 
-Rubric v1 do người 1 chốt: good = vùng đường/đối tượng mục tiêu quan sát được; degraded = vẫn dùng được nhưng mất chi tiết đáng kể; unusable = không đủ quan sát nhiệm vụ. Ghi task/ROI cố định trong `docs/labeling_rubric.md` trước annotation. Chọn vài mẫu hai người gán độc lập, xử lý disagreement trước khi khóa label.
+Annotation dành cho giai đoạn bổ sung. Rubric v1 do người 1 chốt: good = vùng đường/đối tượng mục tiêu quan sát được; degraded = vẫn dùng được nhưng mất chi tiết đáng kể; unusable = không đủ quan sát nhiệm vụ. Ghi task/ROI cố định trong `docs/data_notes.md` trước annotation. Chọn vài mẫu hai người gán độc lập, xử lý disagreement trước khi khóa label.
 
 Nếu chưa có nhãn human đủ lớn, dùng synthetic_rule và ghi `label_scope=synthetic_proxy`. Mapping mức 1/2→good, 3→degraded, 4/5→unusable chỉ là khởi đầu cần kiểm tra; không mặc định dùng hoặc gọi là ground truth. Không lấy health heuristic làm nhãn rồi tuyên bố model là kiểm chứng độc lập.
 
