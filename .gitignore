@@ -12,3 +12,4 @@ annotations/
 models/
 reports/runs/
 .env
+data

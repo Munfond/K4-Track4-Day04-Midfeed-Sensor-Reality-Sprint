@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "feature_version": "1.0.0",
+  "formula_version": "weighted_reference_penalties_v1",
+  "policy_id": "heuristic-v1-018d5d4de3d8cf71",
+  "weights": {
+    "sharpness": 0.3,
+    "exposure": 0.3,
+    "noise": 0.3,
+    "entropy": 0.1
+  },
+  "scale_multiplier": 3.0,
+  "scale_floors": {
+    "log_laplacian_variance": 1.5,
+    "saturation_ratio": 0.2,
+    "dark_ratio": 0.25,
+    "entropy": 1.5,
+    "noise_residual": 10.0,
+    "median_luminance": 60.0
+  },
+  "tolerances": {
+    "log_laplacian_variance": 0.1,
+    "saturation_ratio": 0.1,
+    "dark_ratio": 0.1,
+    "entropy": 0.1,
+    "noise_residual": 0.25,
+    "median_luminance": 0.25
+  },
+  "thresholds": {
+    "normal_min": 75.0,
+    "down_weight_min": 45.0
+  },
+  "frozen": false,
+  "reference_sha256": null,
+  "validation": null
+}
