@@ -1,0 +1,31 @@
+{
+  "data_version": "data-v1",
+  "seed": 20261005,
+  "source": {
+    "metadata_path": "data/raw/bdd100k_hf/samples.json",
+    "metadata_format": "fiftyone",
+    "source_split": "val",
+    "image_dir": "data/raw/bdd100k/images/val",
+    "download_base_url": "https://huggingface.co/datasets/dgural/bdd100k/resolve/main/data"
+  },
+  "groups": {
+    "day_clear": {"timeofday": ["daytime"], "weather": ["clear"], "count": 100},
+    "night_clear": {"timeofday": ["night"], "weather": ["clear"], "count": 100},
+    "rainy": {"timeofday": ["daytime", "night"], "weather": ["rainy"], "count": 100}
+  },
+  "sequence_grouping": "name_prefix",
+  "split_ratios": {"train": 0.6, "val": 0.2, "test": 0.2},
+  "expected_size": [1280, 720],
+  "reference": {
+    "per_mode": 10,
+    "groups": {"day": "day_clear", "night": "night_clear"},
+    "qc": {
+      "day": {"median_luminance": [60, 200], "dark_ratio_max": 0.15, "saturation_ratio_max": 0.05, "log_laplacian_variance_min": 4.0},
+      "night": {"median_luminance": [10, 120], "dark_ratio_max": 0.6, "saturation_ratio_max": 0.05, "log_laplacian_variance_min": 3.0}
+    }
+  },
+  "output": {
+    "manifest": "data/manifests/originals.jsonl",
+    "reference_ids": "data/manifests/reference_ids.json"
+  }
+}
