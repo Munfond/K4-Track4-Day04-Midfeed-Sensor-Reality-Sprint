@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "model_metadata",
+  "model_id": "example_model_v1",
+  "status": "example",
+  "feature_version": "1.0.0",
+  "feature_order": [
+    "log_laplacian_variance",
+    "saturation_ratio",
+    "dark_ratio",
+    "entropy",
+    "noise_residual",
+    "median_luminance",
+    "contrast"
+  ],
+  "class_order": [
+    "good",
+    "degraded",
+    "unusable"
+  ],
+  "artifact_path": "models/example_model_v1/pipeline.joblib",
+  "train_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "config_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "seed": 20261005,
+  "label_scope": "synthetic_proxy",
+  "estimator": "standard_scaler_logistic_regression",
+  "selection_metric": "validation_macro_f1",
+  "health_policy_version": "1.0.0",
+  "dependencies": {
+    "python": "3.12",
+    "scikit-learn": "example-not-trained"
+  }
+}

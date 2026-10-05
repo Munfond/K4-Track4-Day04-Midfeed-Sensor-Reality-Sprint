@@ -1,0 +1,521 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Camera health shared contract v1",
+  "description": "Validate one JSONL record. Cross-record constraints are enforced by scripts/validate_contract.py.",
+  "$defs": {
+    "manifest": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "record_type": {
+          "const": "manifest"
+        },
+        "sample_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "parent_image_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "sequence_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset": {
+          "const": "bdd100k"
+        },
+        "source_split": {
+          "type": "string",
+          "enum": [
+            "train",
+            "val",
+            "test"
+          ]
+        },
+        "image_path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?![A-Za-z]:).+$"
+        },
+        "split": {
+          "type": "string",
+          "enum": [
+            "train",
+            "val",
+            "test"
+          ]
+        },
+        "timeofday": {
+          "type": "string",
+          "enum": [
+            "daytime",
+            "night",
+            "dawn/dusk",
+            "undefined"
+          ]
+        },
+        "weather": {
+          "type": "string",
+          "enum": [
+            "rainy",
+            "snowy",
+            "clear",
+            "overcast",
+            "undefined",
+            "partly cloudy",
+            "foggy"
+          ]
+        },
+        "corruption": {
+          "type": "string",
+          "enum": [
+            "original",
+            "gaussian_blur",
+            "brightness_up",
+            "brightness_down",
+            "gaussian_noise",
+            "rain_overlay"
+          ]
+        },
+        "severity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "seed": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "good",
+            "degraded",
+            "unusable",
+            null
+          ]
+        },
+        "label_source": {
+          "type": "string",
+          "enum": [
+            "human",
+            "synthetic_rule",
+            "unlabeled"
+          ]
+        },
+        "label_rule_version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "sample_id",
+        "parent_image_id",
+        "sequence_id",
+        "dataset",
+        "source_split",
+        "image_path",
+        "split",
+        "timeofday",
+        "weather",
+        "corruption",
+        "severity",
+        "seed",
+        "parameters",
+        "label",
+        "label_source",
+        "label_rule_version"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "corruption": {
+                "const": "original"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "severity": {
+                "const": 0
+              },
+              "seed": {
+                "type": "null"
+              },
+              "parameters": {
+                "maxProperties": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "severity": {
+                "minimum": 1
+              },
+              "seed": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "label_source": {
+                "const": "unlabeled"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "label": {
+                "type": "null"
+              },
+              "label_rule_version": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "label": {
+                "type": "string",
+                "enum": [
+                  "good",
+                  "degraded",
+                  "unusable"
+                ]
+              },
+              "label_rule_version": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "label_source": {
+                "const": "synthetic_rule"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "corruption": {
+                "not": {
+                  "const": "original"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "record_type": {
+          "const": "features"
+        },
+        "sample_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "feature_version": {
+          "const": "1.0.0"
+        },
+        "width": {
+          "const": 640
+        },
+        "height": {
+          "const": 360
+        },
+        "features": {
+          "type": "object",
+          "properties": {
+            "log_laplacian_variance": {
+              "type": "number",
+              "minimum": 0
+            },
+            "saturation_ratio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "dark_ratio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "entropy": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 8
+            },
+            "noise_residual": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "median_luminance": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "contrast": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 127.5
+            }
+          },
+          "required": [
+            "log_laplacian_variance",
+            "saturation_ratio",
+            "dark_ratio",
+            "entropy",
+            "noise_residual",
+            "median_luminance",
+            "contrast"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "sample_id",
+        "feature_version",
+        "width",
+        "height",
+        "features"
+      ],
+      "additionalProperties": false
+    },
+    "prediction": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "record_type": {
+          "const": "prediction"
+        },
+        "sample_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "model_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "probabilities": {
+          "type": "object",
+          "properties": {
+            "good": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "degraded": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "unusable": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "good",
+            "degraded",
+            "unusable"
+          ],
+          "additionalProperties": false
+        },
+        "predicted_label": {
+          "type": "string",
+          "enum": [
+            "good",
+            "degraded",
+            "unusable"
+          ]
+        },
+        "health_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "camera_weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "normal",
+            "down_weight",
+            "strong_down_weight"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "sample_id",
+        "model_id",
+        "probabilities",
+        "predicted_label",
+        "health_score",
+        "camera_weight",
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "model_metadata": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "record_type": {
+          "const": "model_metadata"
+        },
+        "model_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "example",
+            "trained"
+          ]
+        },
+        "feature_version": {
+          "const": "1.0.0"
+        },
+        "feature_order": {
+          "const": [
+            "log_laplacian_variance",
+            "saturation_ratio",
+            "dark_ratio",
+            "entropy",
+            "noise_residual",
+            "median_luminance",
+            "contrast"
+          ]
+        },
+        "class_order": {
+          "const": [
+            "good",
+            "degraded",
+            "unusable"
+          ]
+        },
+        "artifact_path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?![A-Za-z]:).+$"
+        },
+        "train_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "config_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "label_scope": {
+          "type": "string",
+          "enum": [
+            "synthetic_proxy",
+            "human_quality",
+            "mixed"
+          ]
+        },
+        "estimator": {
+          "const": "standard_scaler_logistic_regression"
+        },
+        "selection_metric": {
+          "const": "validation_macro_f1"
+        },
+        "health_policy_version": {
+          "const": "1.0.0"
+        },
+        "dependencies": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "model_id",
+        "status",
+        "feature_version",
+        "feature_order",
+        "class_order",
+        "artifact_path",
+        "train_manifest_sha256",
+        "config_sha256",
+        "seed",
+        "label_scope",
+        "estimator",
+        "selection_metric",
+        "health_policy_version",
+        "dependencies"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/manifest"
+    },
+    {
+      "$ref": "#/$defs/features"
+    },
+    {
+      "$ref": "#/$defs/prediction"
+    },
+    {
+      "$ref": "#/$defs/model_metadata"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"schema_version": "1.0.0", "record_type": "prediction", "sample_id": "example_003", "model_id": "example_model_v1", "probabilities": {"good": 0.8, "degraded": 0.15, "unusable": 0.05}, "predicted_label": "good", "health_score": 87.5, "camera_weight": 0.765625, "action": "normal"}

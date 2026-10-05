@@ -1,0 +1,14 @@
+# Local data and generated outputs
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/raw/
+data/generated/
+data/manifests/
+data/labels/
+data/features/
+annotations/
+models/
+reports/runs/
+.env

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "feature_version": "1.0.0",
+  "feature_order": [
+    "log_laplacian_variance",
+    "saturation_ratio",
+    "dark_ratio",
+    "entropy",
+    "noise_residual",
+    "median_luminance",
+    "contrast"
+  ],
+  "class_order": [
+    "good",
+    "degraded",
+    "unusable"
+  ],
+  "image": {
+    "width": 640,
+    "height": 360,
+    "color": "RGB",
+    "dtype": "uint8",
+    "resize": "Pillow BILINEAR"
+  },
+  "seed": 20261005,
+  "health_policy": {
+    "version": "1.0.0",
+    "good": 1.0,
+    "degraded": 0.5,
+    "unusable": 0.0,
+    "normal_min": 75,
+    "down_weight_min": 45,
+    "camera_weight_exponent": 2
+  }
+}
