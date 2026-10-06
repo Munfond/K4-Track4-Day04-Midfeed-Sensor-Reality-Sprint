@@ -7,7 +7,8 @@ import shutil
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from types import SimpleNamespace
+from unittest.mock import Mock, patch
 
 from PIL import Image
 from scripts import run_health
@@ -48,7 +49,7 @@ class HealthRunTests(unittest.TestCase):
         args = argparse.Namespace(manifest=str(self.manifest), reference_ids=str(self.ids),
                                   config=str(REPO / 'configs/health.json'), features=None,
                                   run_id='fixture_health')
-        with patch.object(run_health.subprocess, 'check_output', return_value='fixture_commit'), contextlib.redirect_stdout(io.StringIO()):
+        with patch.object(run_health, 'subprocess', SimpleNamespace(check_output=Mock(return_value='fixture_commit'))), contextlib.redirect_stdout(io.StringIO()):
             run_health.prepare(args)
 
     def finalize(self):

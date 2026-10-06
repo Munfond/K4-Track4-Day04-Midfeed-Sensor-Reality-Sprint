@@ -2,11 +2,13 @@
 import copy
 import json
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import numpy as np
 from PIL import Image
@@ -42,7 +44,11 @@ class IntegrationTests(unittest.TestCase):
         cls.ids = cls.root / 'ids.json'
         cls.ids.write_text(json.dumps(['day', 'night']), encoding='utf-8')
         cls.patches = [patch.object(module, 'ROOT', cls.root) for module in (corruptions, run_health, evaluate, run_pipeline)]
-        cls.patches.append(patch.object(run_health.subprocess, 'check_output', return_value='fixture_git'))
+        # Replace module bindings, not the shared subprocess.check_output used
+        # by Matplotlib's Linux font discovery (which expects bytes).
+        for module in (run_health, evaluate):
+            cls.patches.append(patch.object(module, 'subprocess',
+                                            SimpleNamespace(check_output=Mock(return_value='fixture_git'))))
         for p in cls.patches:
             p.start()
         try:
@@ -84,6 +90,11 @@ class IntegrationTests(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             evaluate.evaluate(self.root / 'data/manifests/augmented_fixture_integration.jsonl', self.folder / 'features.jsonl', self.folder / 'health_scores.jsonl',
                               self.folder / 'references.json', report)
+
+    def test_git_mocks_preserve_binary_subprocess_output(self):
+        output = subprocess.check_output([sys.executable, '-c', "print('--format')"])
+        self.assertIsInstance(output, bytes)
+        self.assertIn(b'--format', output)
 
     def test_missing_duplicate_and_wrong_score_rejected(self):
         with self.assertRaises(ValueError):
