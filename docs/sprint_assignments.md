@@ -78,7 +78,7 @@ Mode `day/night/fixed_fallback`; health_score=health_adaptive; score [0,100], we
 
 **Bàn giao:** score batch đầu phút 70; frozen config phút 85; kèm công thức, reference IDs/hash và limitations.
 
-**Pass:** đủ score ID, finite/range, reference train-only, mode đúng, fixed/adaptive báo riêng. Machine-readable heuristic schema nếu cần sẽ do người 5 quản lý với version phù hợp; schema v1 hiện tại chưa validate record này.
+**Pass:** đủ score ID, finite/range, reference train-only, mode đúng, fixed/adaptive báo riêng. Người 5 đã bổ sung schema độc lập `schemas/heuristic_health.schema.json` và `scripts/validate_health.py` cho record tạm thời v1.0.0; schema ML v1 giữ nguyên. Trạng thái thực hiện và bằng chứng: [integration_status.md](integration_status.md).
 
 ## Người 5 — Integration/evaluation/pitch (branch feat/integration)
 

@@ -1,0 +1,45 @@
+{
+  "status": "delivery_verified_preparation_not_replayed",
+  "delivery": {
+    "status": "ready",
+    "original_count": 300,
+    "expected_synthetic_count": 6000,
+    "expected_record_count": 6300,
+    "manifest": "data\\manifests\\originals.jsonl",
+    "config": "configs\\corruptions.json",
+    "manifest_sha256": "ad252ca630b8b35a0e4394ef55d87865aad952da2c4d0f8534f429eab715b57a",
+    "config_sha256": "7948ef84f8af42bbd262e93dcf6de9cedf5256e9774039835505c17a963f926a",
+    "split_counts": {
+      "test": 60,
+      "val": 60,
+      "train": 180
+    },
+    "timeofday_counts": {
+      "night": 141,
+      "daytime": 159
+    },
+    "weather_counts": {
+      "clear": 200,
+      "rainy": 100
+    },
+    "duplicate_source_groups": [],
+    "warnings": []
+  },
+  "reference_count": 20,
+  "reference_visual_review": "pending",
+  "source_metadata_records": 10000,
+  "matched_original_metadata": 300,
+  "metadata_mismatches": [],
+  "missing_source_metadata": [],
+  "missing_preparation_files": [
+    "src/prepare_data.py",
+    "configs/data.json",
+    "docs/data_notes.md"
+  ],
+  "limitations": "Cannot replay person1 preparation without its code/config. Sequence IDs checked as supplied, not independently verified. Visual daytime/night flags also occur in local source metadata.",
+  "seconds": 14.620888299999933,
+  "person": 1,
+  "phase": "data_handoff_audit",
+  "data_kind": "real_bdd100k",
+  "recorded_at_utc": "2026-10-05T19:33:52.391790+00:00"
+}

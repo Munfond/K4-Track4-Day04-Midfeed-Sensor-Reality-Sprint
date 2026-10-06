@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "recalibrated_real_train_images": 20,
+  "reference_sha256": "0ba1cbe2c782bc7a23548c6d56d3cfc42808fcee63f1901e18bf3ff065a8fd65",
+  "full_health": {
+    "health": 6300,
+    "test": 1260,
+    "frozen": true,
+    "policy_id": "heuristic-v1-5a7bf047d3a775aa"
+  },
+  "pre_freeze_val_records_equal": 1260,
+  "frozen_config_sha256": "8e960bd521a6beb003d0d5051ef23b4d64cd5d733a06a525c1e97001a15f5ab6",
+  "limitations": "Same unchanged heuristic policy; replay proves implementation reproducibility, not optimal thresholds, clean reference labels or ADAS reliability.",
+  "seconds": 16.585976300000766,
+  "person": 4,
+  "phase": "reference_recalibration_and_full_health_recomputation",
+  "data_kind": "real_bdd100k",
+  "recorded_at_utc": "2026-10-05T19:36:35.299181+00:00"
+}

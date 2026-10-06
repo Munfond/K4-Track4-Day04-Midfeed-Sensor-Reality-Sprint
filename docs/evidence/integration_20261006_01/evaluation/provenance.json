@@ -1,0 +1,73 @@
+{
+  "generated_at_utc": "2026-10-05T19:16:52.692115+00:00",
+  "data_kind": "real",
+  "validation": {
+    "health": 6300,
+    "test": 1260,
+    "frozen": true,
+    "policy_id": "heuristic-v1-5a7bf047d3a775aa"
+  },
+  "input_sha256": {
+    "data\\manifests\\augmented_integration_20261006_01.jsonl": "9eb8a4f62b184f4579ca77473e22567c7eb306c8994ea5e5a4a57bad8a6d8f06",
+    "data\\features\\integration_20261006_01\\features.jsonl": "6b1bcea46d43f3a8e036d08b2fa443230bdbb8c9e2eeb217fadc5d76250c53e0",
+    "data\\features\\integration_20261006_01\\health_scores.jsonl": "8f3d256afae0f6153c4fe656a037487d340f3e99de783f18bc2fe0f8c415ef2e",
+    "data\\features\\integration_20261006_01\\references.json": "5fb3cc255f53fe7bd8f62443bf1bc5dbf989b5dc1c81607628df11233d8ada31"
+  },
+  "extra_input_sha256": {
+    "data\\manifests\\reference_ids.json": "27074f74ea7a9f5299b5d89288625c562adcc4f8d6b0e2aa861d82ad18c704a4",
+    "data\\generated\\integration_20261006_01\\run_summary.json": "0b3584483e991aedafafe02e9adcc65593a383419ba1618893df44824f2d93c4"
+  },
+  "module_sha256": {
+    "src/run_pipeline.py": "5639547ec728fc112f35e5a0f2ac64433a895cfc065e002bdcee92fd0cae7e92",
+    "src/evaluate.py": "a2bcb0547bba3fc79c7060ce4b8d33546bfe48198342a7209e08db6b7cb09fa3",
+    "src/corruptions.py": "417d31c30a5eb33add0a3290c9a988348fe44a989519eda2d808a8d3541463ae",
+    "src/features.py": "b7e3fd269c1d9d164abda2d047bf7ab962bb85b32de7462da5a7f6c1bb9d82e4",
+    "src/baseline.py": "0a707af03e45dfde8d4fc7492f1aa10179e8f8faf0b7bd2fd3d3fe11b4850458",
+    "scripts/validate_health.py": "26f4b218e9beeca70d1255d69853779eb528d639b1395e40b3f5152b1c609b5d",
+    "scripts/run_health.py": "0f8bf204a23526e7d21aa5e26371c7b76b152104d6852acb25575f7de37af6df",
+    "scripts/validate_contract.py": "8a52580159465777d8a444a8db82400eb6912026d8a9031a45d6c45567e70101",
+    "schemas/heuristic_health.schema.json": "ab75e8cd934a9a9e8fc512328cb9f6b3bffc49589b7c2de9653c59c3176edb59",
+    "configs/contract.json": "55e1328a68abbcd03488d5f9424d6324501a15005c1eae883292e6bb2134a461"
+  },
+  "git_commit": "0917990c809ed503ec29240ff6b61d29bbb8e4cc",
+  "git_status": [
+    " M README.md",
+    " M docs/contracts.md",
+    " M docs/sprint_assignments.md",
+    " M docs/team_ownership.md",
+    " M requirements-dev.txt",
+    " M requirements.txt",
+    "?? docs/integration_status.md",
+    "?? schemas/heuristic_health.schema.json",
+    "?? scripts/validate_health.py",
+    "?? src/evaluate.py",
+    "?? src/run_pipeline.py",
+    "?? tests/test_integration.py"
+  ],
+  "versions": {
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0",
+    "jsonschema": "4.26.0",
+    "matplotlib": "3.11.2"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "command_argv": [
+    "src/run_pipeline.py",
+    "finalize",
+    "--run-id",
+    "integration_20261006_01",
+    "--validation-note",
+    "Reviewed 1260 val frames via summaries, severity curves, rainy originals, low-score originals and noise pairs in reports/runs/integration_20261006_01/validation_review. Original adaptive mean 89.4142; synthetic 68.6560. Retain owner4 default policy and thresholds 75/45 for exploratory evaluation, without tuning. Night brightness/noise can improve scores; blur curves plateau and occasionally rise. No quality labels or ADAS validation.",
+    "--reference-review-note",
+    "Integrator inspected 20 train reference thumbnails and full-resolution c33251a6-812a0ea8 and bdcd6f24-e3a675af. Night references include glare, darkness and possible blur/wet scenes; they are representative imperfect baselines, not pristine ground truth. Preserve owner1 delivery; source visual_review remains pending. Require owner1 review before a stronger quality claim."
+  ],
+  "reference_sha256": "0ba1cbe2c782bc7a23548c6d56d3cfc42808fcee63f1901e18bf3ff065a8fd65",
+  "config_sha256": "8e960bd521a6beb003d0d5051ef23b4d64cd5d733a06a525c1e97001a15f5ab6",
+  "synthetic_seed_count": 6000,
+  "scored_frames": 6300,
+  "split_counts": {
+    "test": 1260,
+    "val": 1260,
+    "train": 3780
+  }
+}

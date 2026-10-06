@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "command": ".venv/Scripts/python.exe scripts/verify_published_evidence.py",
+  "artifact_hashes": 35,
+  "health": 6300,
+  "test": 1260,
+  "frozen": true,
+  "policy_id": "heuristic-v1-5a7bf047d3a775aa",
+  "main_curve_groups_recomputed": 12,
+  "clean_checkout_without_dataset": "passed; repeated verification using only staged repository files",
+  "checked_local_document_links": 149,
+  "missing_or_untracked_document_link_targets": 0,
+  "scope": "Published snapshots only; no image reextraction or pixel replay in this command. Historical image replay is recorded in audit/."
+}

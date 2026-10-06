@@ -1,0 +1,119 @@
+{
+  "record_type": "heuristic_health_explanation",
+  "explanation_version": "1.0.0",
+  "health_record": {
+    "schema_version": "1.0.0",
+    "record_type": "heuristic_health",
+    "sample_id": "b329fe7d-f06455d3",
+    "policy_id": "heuristic-v1-5a7bf047d3a775aa",
+    "mode": "day",
+    "health_fixed": 82.06703259274117,
+    "health_adaptive": 38.656251172223186,
+    "health_score": 38.656251172223186,
+    "camera_weight": 0.14943057546900065,
+    "action": "strong_down_weight"
+  },
+  "feature_values": {
+    "log_laplacian_variance": 4.819305073320633,
+    "saturation_ratio": 0.0008420138888888889,
+    "dark_ratio": 0.09420138888888889,
+    "entropy": 6.1122584351498075,
+    "noise_residual": 2.987356168085754,
+    "median_luminance": 21.0,
+    "contrast": 26.47749015450861
+  },
+  "fixed": {
+    "health_score": 82.06703259274117,
+    "reference_count": 20,
+    "penalties": {
+      "sharpness": 0.3002983501524862,
+      "entropy": 0.10768814860175824,
+      "noise": 0.0,
+      "exposure": 0.2615711805555555
+    },
+    "penalty_points": {
+      "sharpness": 9.008950504574585,
+      "entropy": 1.0768814860175824,
+      "noise": 0.0,
+      "exposure": 7.847135416666665
+    },
+    "reference_median": {
+      "log_laplacian_variance": 5.693016983926402,
+      "saturation_ratio": 0.0016341145833333333,
+      "dark_ratio": 0.0038085937500000003,
+      "entropy": 6.849884247483256,
+      "noise_residual": 4.311598481257963,
+      "median_luminance": 60.0,
+      "contrast": 44.30109182925099
+    },
+    "scales": {
+      "log_laplacian_variance": 2.182651790278287,
+      "saturation_ratio": 0.2,
+      "dark_ratio": 0.25,
+      "entropy": 3.5516028107499067,
+      "noise_residual": 10.0,
+      "median_luminance": 189.0315
+    },
+    "deadbands": {
+      "log_laplacian_variance": 0.21826517902782872,
+      "saturation_ratio": 0.020000000000000004,
+      "dark_ratio": 0.025,
+      "entropy": 0.3551602810749907,
+      "noise_residual": 2.5,
+      "median_luminance": 47.257875
+    },
+    "exposure_penalties": {
+      "dark_ratio": 0.2615711805555555,
+      "saturation_ratio": 0.0,
+      "median_luminance": 0.0
+    },
+    "exposure_driver": "dark_ratio"
+  },
+  "adaptive": {
+    "health_score": 38.656251172223186,
+    "reference_count": 10,
+    "penalties": {
+      "sharpness": 0.7471189003122805,
+      "entropy": 0.8930181818408404,
+      "noise": 0.0,
+      "exposure": 1.0
+    },
+    "penalty_points": {
+      "sharpness": 22.413567009368414,
+      "entropy": 8.930181818408403,
+      "noise": 0.0,
+      "exposure": 30.0
+    },
+    "reference_median": {
+      "log_laplacian_variance": 6.089983423789054,
+      "saturation_ratio": 0.00044270833333333337,
+      "dark_ratio": 0.0005902777777777778,
+      "entropy": 7.601785707911068,
+      "noise_residual": 5.087373555031687,
+      "median_luminance": 102.0,
+      "contrast": 60.71045961118921
+    },
+    "scales": {
+      "log_laplacian_variance": 1.5,
+      "saturation_ratio": 0.2,
+      "dark_ratio": 0.25,
+      "entropy": 1.5,
+      "noise_residual": 10.0,
+      "median_luminance": 60.0
+    },
+    "deadbands": {
+      "log_laplacian_variance": 0.15000000000000002,
+      "saturation_ratio": 0.020000000000000004,
+      "dark_ratio": 0.025,
+      "entropy": 0.15000000000000002,
+      "noise_residual": 2.5,
+      "median_luminance": 15.0
+    },
+    "exposure_penalties": {
+      "dark_ratio": 0.2744444444444445,
+      "saturation_ratio": 0.0,
+      "median_luminance": 1.0
+    },
+    "exposure_driver": "median_luminance"
+  }
+}

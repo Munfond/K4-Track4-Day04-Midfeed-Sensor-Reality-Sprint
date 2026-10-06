@@ -1,6 +1,6 @@
 # Phân công và chống conflict — 5 người, tạm hoãn train model
 
-**Phạm vi hiện tại:** data → degradation → feature → health heuristic → evaluation. [Chi tiết công việc, API và output từng người](sprint_assignments.md). Model/prediction schema hiện có dành cho giai đoạn sau. Repo chưa có implementation các module trong bảng.
+**Phạm vi hiện tại:** data → degradation → feature → health heuristic → evaluation. [Chi tiết công việc, API và output từng người](sprint_assignments.md). Model/prediction schema hiện có dành cho giai đoạn sau. Implementation và bằng chứng hiện tại được ghi trong [integration_status.md](integration_status.md).
 
 | Người | Branch | File sở hữu | Bàn giao |
 |---|---|---|---|
@@ -11,6 +11,8 @@
 | 5: integration/evaluation | `feat/integration` | `src/run_pipeline.py`, `src/evaluate.py`, `scripts/`, `tests/`, `schemas/`, `configs/contract.json`, `docs/contracts.md`, `docs/team_ownership.md`, `docs/sprint_assignments.md`, `README.md`, requirements, `.github/` | runner, kiểm tra interface, metrics/report và merge |
 
 Người 1 ghi `data/manifests/originals.jsonl` và `reference_ids.json`; người 2 ghi `data/manifests/augmented_<run_id>.jsonl` và `data/generated/<run_id>/`; người 3 ghi `data/features/<run_id>/features.jsonl`; người 4 ghi `data/features/<run_id>/health_scores.jsonl` và `references.json`; người 5 ghi `reports/runs/<run_id>/`. Đây là output local/gitignored; mỗi file chỉ có một writer.
+
+Người 5 sở hữu thêm `scripts/validate_health.py`, `schemas/heuristic_health.schema.json`, `tests/test_integration.py` và `docs/integration_status.md`. Runner chỉ gọi adapter owner để tạo snapshot mới; báo cáo val ở `reports/runs/<run_id>/validation/`, final ở root run. Người 5 không sửa code/config/data gốc của người 1–4.
 
 ## Luật phối hợp
 
